@@ -17,3 +17,4 @@ site:
         payload:
             - vault
     siteLastModified: true
+    siteUrl: "https://docs.codecrafters.io"
