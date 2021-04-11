@@ -2,7 +2,7 @@
 id: 2c636ecb-eb59-45b5-a4c0-15f49e9b489b
 title: Debugging
 desc: ''
-updated: 1618064497399
+updated: 1618136158471
 created: 1618055859978
 ---
 
@@ -30,4 +30,4 @@ Adding logs in your code can help narrow down the problem.
 
 **3. Ask for help**
 
-If you're still struggling with a bug that is hard to track down, feel free to ask in Discord!
+If you're still struggling with a bug that is hard to track down, feel free to ask in [[Discord|glossary#discord]]!
