@@ -2,8 +2,9 @@
 id: 83aa0b92-ce37-4921-bfb7-0319d093ae0a
 title: Glossary
 desc: ''
-updated: 1618136216424
+updated: 1618136724802
 created: 1618135717434
+nav_order: 10
 ---
 
 ## Discord

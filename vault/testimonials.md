@@ -2,8 +2,9 @@
 id: 03e4409c-3111-44ab-8b09-46b98cf84885
 title: Testimonials
 desc: ''
-updated: 1616952458189
+updated: 1618136718643
 created: 1616951725820
+nav_order: 2
 ---
 
 > I've started the Docker challenge, enjoying it a lot so far. Just the right level of guidance, helpful and still gives you a lot of freedom to explore and learn for yourself.
