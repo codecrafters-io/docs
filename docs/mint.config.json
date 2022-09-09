@@ -1,0 +1,87 @@
+{
+  "name": "CodeCrafters",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#14B8A6",
+    "light": "#00EFD1",
+    "dark": "#0D9488",
+    "ultraLight": "#BBEAE4",
+    "ultraDark": "#077C72"
+  },
+  "topbarCtaButton": {
+    "name": "Start 3-day trial",
+    "url": "https://app.codecrafters.io/pay"
+  },
+  "topbarLinks": [
+    {
+      "name": "Login",
+      "url": "https://app.codecrafters.io/login"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "discord",
+      "color": "#5865F2",
+      "url": "https://discord.gg/DeqUD2P"
+    },
+    {
+      "name": "Demo",
+      "icon": "circle-play",
+      "color": "#00EFD1",
+      "url": "https://codecrafters.io/videos/demo"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["introduction"]
+    },
+    {
+      "group": "Challenges",
+      "pages": [
+        "challenges/debug-test-failures",
+        "challenges/install-additional-dependencies",
+        "challenges/reattempt-challenge",
+        "challenges/debug-test-failures-redis",
+        "challenges/how-challenges-work"
+      ]
+    },
+    {
+      "group": "Authoring Challenges",
+      "pages": ["authoring-challenges/planning-your-challenge"]
+    },
+    {
+      "group": "Billing",
+      "pages": [
+        "billing/access-a-challenge",
+        "billing/find-license-key",
+        "billing/get-an-invoice"
+      ]
+    },
+    {
+      "group": "Community",
+      "pages": [
+        "community/discord-access",
+        "community/crafter-roles",
+        "community/assigned-crafter-roles"
+      ]
+    },
+    {
+      "group": "Profile Pages",
+      "pages": [
+        "profile-pages/where-is-my-profile-page",
+        "profile-pages/list-multiple-languages"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "discord": "https://discord.com/invite/DeqUD2P",
+    "twitter": "https://twitter.com/codecraftersio",
+    "github": "https://github.com/codecrafters-io"
+  }
+}
