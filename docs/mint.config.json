@@ -52,10 +52,6 @@
       ]
     },
     {
-      "group": "Authoring Challenges",
-      "pages": ["authoring-challenges/planning-your-challenge"]
-    },
-    {
       "group": "Billing",
       "pages": [
         "billing/access-a-challenge",
