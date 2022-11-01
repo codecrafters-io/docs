@@ -52,6 +52,12 @@
       ]
     },
     {
+      "group": "CLI",
+      "pages": [
+        "cli/installation"
+      ]
+    },
+    {
       "group": "Billing",
       "pages": [
         "billing/access-a-challenge",
