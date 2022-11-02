@@ -52,8 +52,10 @@
       ]
     },
     {
-      "group": "Authoring Challenges",
-      "pages": ["authoring-challenges/planning-your-challenge"]
+      "group": "CLI",
+      "pages": [
+        "cli/installation"
+      ]
     },
     {
       "group": "Billing",
