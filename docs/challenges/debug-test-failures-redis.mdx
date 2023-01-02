@@ -34,6 +34,8 @@ Run Wireshark and use `tcp.port == 6379` or `tcp.port == 6380` as a display filt
   <img class="w-full" src="/img/wireshark.png" />
 </Frame>
 
+Make sure that the bottom toolbar says `Loopback: lo0`, and not something like `Wi-Fi: en0`.
+
 ### 2. Start your redis server implementation (on port 6379)
 
 You'll find instructions for this in your repository's README (like [here](https://github.com/codecrafters-io/redis-starter-go#usage)). Your server will run on `port 6379`, which is the port we've configured Wireshark to capture data on.
