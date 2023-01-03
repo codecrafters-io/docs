@@ -18,11 +18,7 @@ Make sure you have [redis-cli](https://redis.io/topics/rediscli) and [redis-serv
 
 ### Wireshark
 
-Since redis-cli & redis-server communicate with each over using TCP, we'll need a tool to inspect TCP messages. Install [Wireshark](https://www.wireshark.org/#download).
-
-<Note>
-  Alternatively, you could use [tcpdump](https://www.tcpdump.org/). We don't have instructions for tcpdump in this guide yet, but are [open to contributions](https://github.com/codecrafters-io/docs/blob/master/docs/challenges/debug-test-failures-redis.mdx).
-</Note>
+Since redis-cli & redis-server communicate with each over using TCP, we'll need a tool to inspect TCP messages. Install [Wireshark](https://www.wireshark.org/#download). If you prefer CLI tools you can also use **tcpdump**.
 
 ## Methodology
 
@@ -35,6 +31,14 @@ Run Wireshark and use `tcp.port == 6379` or `tcp.port == 6380` as a display filt
 </Frame>
 
 Make sure that the bottom toolbar says `Loopback: lo0`, and not something like `Wi-Fi: en0`.
+
+#### Using tcpdump to capture and display TCP traffic
+
+```bash terminal
+sudo tcpdump -i lo0 -X port 6379 or port 6380
+```
+
+Only root or user with sudo privileges can run tcpdump. See `man tcpdump` for more information.
 
 ### 2. Start your redis server implementation (on port 6379)
 
@@ -83,6 +87,10 @@ Once you've sent a few commands, head back to Wireshark and you'll now see some 
 </Frame>
 
 Notice the "\*1 $4 ping" at the bottom? That's the PING command, encoded using the [Redis protocol](https://redis.io/topics/protocol).
+
+#### View capture data from tcpdump
+
+tcpdump can output all the same information as Wireshark. For example, when sending the PING command, look for `$4..PING..` and `+PONG..` in the captured data.
 
 ### 5. Compare with official redis implementation
 
