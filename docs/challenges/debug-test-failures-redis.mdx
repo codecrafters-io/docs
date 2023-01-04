@@ -31,7 +31,7 @@ Since redis-cli & redis-server communicate with each over using TCP, we'll need 
 Run Wireshark and use `tcp.port == 6379` or `tcp.port == 6380` as a display filter. We'll use this in step 4 to view captured packets.
 
 <Frame>
-  <img class="w-full" src="/img/wireshark.png" />
+  <img className="w-full" src="/img/wireshark.png" />
 </Frame>
 
 Make sure that the bottom toolbar says `Loopback: lo0`, and not something like `Wi-Fi: en0`.
@@ -45,7 +45,7 @@ You'll find instructions for this in your repository's README (like [here](https
 Run `redis-server --port 6380` to do this.
 
 <Frame>
-  <img class="w-full" src="/img/redis.png" />
+  <img className="w-full" src="/img/redis.png" />
 </Frame>
 
 **Send a few commands to your server using redis-cli.**
@@ -69,7 +69,7 @@ redis-cli -p 6379 echo key
 If your redis implementation doesn't send a valid response, you might see an error like this:
 
 <Frame>
-  <img class="w-full" src="/img/redis-error.png" />
+  <img className="w-full" src="/img/redis-error.png" />
 </Frame>
 
 These error messages can be cryptic, and in some cases the Redis client might just hang waiting for bytes that never arrive.
@@ -79,7 +79,7 @@ These error messages can be cryptic, and in some cases the Redis client might ju
 Once you've sent a few commands, head back to Wireshark and you'll now see some captured packets. You can inspect these to see exactly what data your implementation responded with.
 
 <Frame>
-  <img class="w-full" src="/img/capture-data-wireshark.png" />
+  <img className="w-full" src="/img/capture-data-wireshark.png" />
 </Frame>
 
 Notice the "\*1 $4 ping" at the bottom? That's the PING command, encoded using the [Redis protocol](https://redis.io/topics/protocol).
@@ -91,7 +91,7 @@ Now that you know exactly what data your Redis server is sending, you can compar
 Send commands using `redis-cli -p 6380 <command>`.
 
 <Frame>
-  <img class="w-full" src="/img/redis-command.png" />
+  <img className="w-full" src="/img/redis-command.png" />
 </Frame>
 
 Inspect the output in Wireshark (as mentioned in step 4) to see how the official Redis implementation differs from yours.
