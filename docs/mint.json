@@ -60,8 +60,6 @@
     {
       "group": "Billing",
       "pages": [
-        "billing/access-a-challenge",
-        "billing/find-license-key",
         "billing/get-an-invoice"
       ]
     },
