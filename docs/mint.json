@@ -39,7 +39,9 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["introduction"]
+      "pages": [
+        "introduction"
+      ]
     },
     {
       "group": "Challenges",
@@ -77,6 +79,12 @@
       "pages": [
         "profile-pages/where-is-my-profile-page",
         "profile-pages/list-multiple-languages"
+      ]
+    },
+    {
+      "group": "Account",
+      "pages": [
+        "account/delete-account"
       ]
     }
   ],
