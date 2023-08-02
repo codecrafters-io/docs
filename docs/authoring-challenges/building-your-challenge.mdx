@@ -1,0 +1,35 @@
+---
+title: "Building your challenge"
+description: "Details on building the stage instructions and test cases for your challenge."
+---
+
+Once you've [pre-launched your challenge](/authoring-challenges/pre-launching-your-challenge), you're ready to start building out the
+stage instructions and test cases.
+
+It's upto you whether you want to build test cases first or stage instructions first. We recommend building both in parallel, one stage at a time. This allows
+you to think about how a learner will progress through your challenge, and what they'll need at each stage.
+
+## Test Cases
+
+For each stage defined in your `course-definition.yml` file, you'll need a corresponding test case. These are defined in your tester repository. Here
+are some examples from our other challenges:
+
+- [Redis](https://github.com/codecrafters-io/redis-tester)
+- [Docker](https://github.com/codecrafters-io/docker-tester)
+- [Git](https://github.com/codecrafters-io/git-tester)
+
+We recommend testing your test cases against a "reference" implementation. For example, in the Git challenge we test `git-tester` by running it against the official
+`git` command.
+
+## Stage Instructions
+
+Stage instructions are present in the `course-definition.yml` file (under the `description_md` key). Here are some examples from our other challenges:
+
+- [Redis](https://github.com/codecrafters-io/build-your-own-redis/blob/main/course-definition.yml)
+- [Docker](https://github.com/codecrafters-io/build-your-own-docker/blob/main/course-definition.yml)
+- [Git](https://github.com/codecrafters-io/build-your-own-git/blob/main/course-definition.yml)
+
+---
+
+Note: we're still building the external course authoring feature, so updates to your tester program might not be visible on `app.codecrafters.io` immediately. Updates to the stage
+instructions should be visible immediately once they're "applied" from the admin area. Let Paul know if you run into any issues.
