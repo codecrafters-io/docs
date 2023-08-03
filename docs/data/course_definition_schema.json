@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "properties": {
+    "slug": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "short_name": { "type": "string", "minLength": 1 },
+    "release_status": { "type": "string", "minLength": 1 },
+    "description_md": { "type": "string", "minLength": 1 },
+    "short_description_md": { "type": "string", "minLength": 1 },
+    "completion_percentage": { "type": "integer", "not": { "type": "null" } },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slug": { "type": "string", "minLength": 1 },
+          "starter_repository_url": { "type": "string", "minLength": 1 }
+        },
+        "required": ["slug", "starter_repository_url"]
+      }
+    },
+    "marketing": {
+      "type": "object",
+      "properties": {
+        "difficulty": { "type": "string", "minLength": 1 },
+        "sample_extension_idea_title": { "type": "string", "minLength": 1 },
+        "sample_extension_idea_description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "testimonials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "author_name": { "type": "string", "minLength": 1 },
+              "author_description": { "type": "string", "minLength": 1 },
+              "author_avatar": { "type": "string", "minLength": 1 },
+              "link": { "type": "string", "minLength": 1 },
+              "text": { "type": "string", "minLength": 1 }
+            },
+            "required": [
+              "author_name",
+              "author_description",
+              "author_avatar",
+              "link",
+              "text"
+            ]
+          }
+        }
+      },
+      "required": ["difficulty", "testimonials"]
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slug": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "description_md": { "type": "string", "minLength": 1 },
+          "difficulty": { "type": "string", "minLength": 1 },
+          "marketing_md": { "type": "string", "minLength": 1 },
+          "tester_source_code_url": { "type": "string", "minLength": 1 }
+        },
+        "required": [
+          "slug",
+          "name",
+          "description_md",
+          "difficulty",
+          "marketing_md"
+        ]
+      }
+    }
+  },
+  "required": [
+    "slug",
+    "name",
+    "short_name",
+    "release_status",
+    "description_md",
+    "short_description_md",
+    "completion_percentage",
+    "languages",
+    "marketing",
+    "stages"
+  ]
+}
