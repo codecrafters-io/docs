@@ -115,12 +115,12 @@
           "description_md": {
             "type": "string",
             "minLength": 1,
-            "description": "A markdown description for this stage, rendered in the 'Your Task' card. Example: ```\nIn this stage, you'll respond to the [PING](https://redis.io/commands/ping) command.\n\nYour server should respond with `+PONG\\r\\n`, which is \"PONG\" encoded as a [RESP simple string](https://redis.io/docs/reference/protocol-spec/#resp-simple-strings).\n\nSince the tester client _only_ sends the PING command at the moment, it's okay to ignore what the client sends and hardcode a response. We'll get to parsing client input in later stages.\n```"
+            "description": "A markdown description for this stage, rendered in the 'Your Task' card."
           },
           "difficulty": {
             "type": "string",
             "minLength": 1,
-            "description": "A difficulty rating for this stage, from the perspective of a proficient programmer.\n\n- `very_easy`: <5m\n- `easy`: 5-10m \n-`medium`: 30m-1h\n- `hard`: >1h"
+            "description": "A difficulty rating for this stage, from the perspective of a proficient programmer.\n\n- `very_easy`: <5m\n- `easy`: 5-10m \n- `medium`: 30m-1h\n- `hard`: >1h"
           },
           "marketing_md": {
             "type": "string",

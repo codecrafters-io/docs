@@ -6,10 +6,10 @@ def generate_response_field_for_property(property_name, property_hash)
 
     property_hash["properties"].each do |sub_property_name, sub_property_hash|
       inner_fields += generate_response_field_for_property(sub_property_name, sub_property_hash)
-      inner_fields += "\n\n"
+      inner_fields += "\n"
     end
 
-    <<~EOF
+    <<~EOF.strip
       <ResponseField name="#{property_name}" type="#{property_hash["type"]}">
         <Expandable title="properties">
           #{inner_fields.gsub("\n", "\n    ")}
@@ -21,21 +21,25 @@ def generate_response_field_for_property(property_name, property_hash)
 
     property_hash["items"]["properties"].each do |sub_property_name, sub_property_hash|
       inner_fields += generate_response_field_for_property(sub_property_name, sub_property_hash)
-      inner_fields += "\n\n"
+      inner_fields += "\n"
     end
 
-    <<~EOF
+    <<~EOF.strip
       <ResponseField name="#{property_name}" type="#{property_hash["type"]}">
         <Expandable title="item properties">
           #{inner_fields.gsub("\n", "\n    ")}
         </Expandable>
       </ResponseField>
     EOF
-  else
-    <<~EOF
+  elsif property_hash["description"]
+    <<~EOF.strip
       <ResponseField name="#{property_name}" type="#{property_hash["type"]}">
         #{(property_hash["description"] || "").gsub("<", "&lt;").gsub(">", "&gt;")}
       </ResponseField>
+    EOF
+  else
+    <<~EOF.strip
+      <ResponseField name="#{property_name}" type="#{property_hash["type"]}" />
     EOF
   end
 end
