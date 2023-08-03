@@ -34,6 +34,7 @@ def generate_response_field_for_property(property_name, property_hash)
   else
     <<~EOF
       <ResponseField name="#{property_name}" type="#{property_hash["type"]}">
+        #{property_hash["description"]}
       </ResponseField>
     EOF
   end

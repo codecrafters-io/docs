@@ -2,13 +2,41 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "type": "object",
   "properties": {
-    "slug": { "type": "string", "minLength": 1 },
-    "name": { "type": "string", "minLength": 1 },
-    "short_name": { "type": "string", "minLength": 1 },
-    "release_status": { "type": "string", "minLength": 1 },
-    "description_md": { "type": "string", "minLength": 1 },
-    "short_description_md": { "type": "string", "minLength": 1 },
-    "completion_percentage": { "type": "integer", "not": { "type": "null" } },
+    "slug": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A unique URL-friendly identifier for your course. Example: `redis`."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The name of your course. Example: `Build your own Redis`."
+    },
+    "short_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A short name for your course. Example: `Redis`."
+    },
+    "release_status": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The release status of your course. Accepted values: `alpha`, `beta`, `live`."
+    },
+    "description_md": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A markdown description for your course. 25-50 words."
+    },
+    "short_description_md": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A short description of your course, < 15 words."
+    },
+    "completion_percentage": {
+      "type": "integer",
+      "not": { "type": "null" },
+      "description": "The percentage of users who complete this course. Set to 5% if we don't have data yet."
+    },
     "languages": {
       "type": "array",
       "items": {
