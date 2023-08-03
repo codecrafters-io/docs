@@ -12,7 +12,7 @@ def generate_response_field_for_property(property_name, property_hash)
     <<~EOF
       <ResponseField name="#{property_name}" type="#{property_hash["type"]}">
         <Expandable title="properties">
-          #{inner_fields}
+          #{inner_fields.gsub("\n", "\n    ")}
         </Expandable>
       </ResponseField>
     EOF
@@ -27,14 +27,14 @@ def generate_response_field_for_property(property_name, property_hash)
     <<~EOF
       <ResponseField name="#{property_name}" type="#{property_hash["type"]}">
         <Expandable title="item properties">
-          #{inner_fields}
+          #{inner_fields.gsub("\n", "\n    ")}
         </Expandable>
       </ResponseField>
     EOF
   else
     <<~EOF
       <ResponseField name="#{property_name}" type="#{property_hash["type"]}">
-        #{property_hash["description"]}
+        #{(property_hash["description"] || "").gsub("<", "&lt;").gsub(">", "&gt;")}
       </ResponseField>
     EOF
   end

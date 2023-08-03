@@ -42,8 +42,16 @@
       "items": {
         "type": "object",
         "properties": {
-          "slug": { "type": "string", "minLength": 1 },
-          "starter_repository_url": { "type": "string", "minLength": 1 }
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Slug for the language. Example: `python`. Full list of languages available [here](https://backend.codecrafters.io/api/v1/languages)."
+          },
+          "starter_repository_url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "URL to the starter repository for this language. Example: https://github.com/codecrafters-io/redis-starter-ruby"
+          }
         },
         "required": ["slug", "starter_repository_url"]
       }
@@ -51,11 +59,20 @@
     "marketing": {
       "type": "object",
       "properties": {
-        "difficulty": { "type": "string", "minLength": 1 },
-        "sample_extension_idea_title": { "type": "string", "minLength": 1 },
+        "difficulty": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The difficulty of the course. Accepted values: `easy`, `medium`, `hard`."
+        },
+        "sample_extension_idea_title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A title for the sample extension idea. Example: `Geospatial Queries`"
+        },
         "sample_extension_idea_description": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "description": "A description for the sample extension idea. Example: `A Redis server that can respond to geospatial queries`"
         },
         "testimonials": {
           "type": "array",
@@ -85,12 +102,36 @@
       "items": {
         "type": "object",
         "properties": {
-          "slug": { "type": "string", "minLength": 1 },
-          "name": { "type": "string", "minLength": 1 },
-          "description_md": { "type": "string", "minLength": 1 },
-          "difficulty": { "type": "string", "minLength": 1 },
-          "marketing_md": { "type": "string", "minLength": 1 },
-          "tester_source_code_url": { "type": "string", "minLength": 1 }
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A unique identifier for this stage. Your tester will reference this value. Example: `init`"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The name of this stage. Example: `Respond to PING`"
+          },
+          "description_md": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A markdown description for this stage, rendered in the 'Your Task' card. Example: ```\nIn this stage, you'll respond to the [PING](https://redis.io/commands/ping) command.\n\nYour server should respond with `+PONG\\r\\n`, which is \"PONG\" encoded as a [RESP simple string](https://redis.io/docs/reference/protocol-spec/#resp-simple-strings).\n\nSince the tester client _only_ sends the PING command at the moment, it's okay to ignore what the client sends and hardcode a response. We'll get to parsing client input in later stages.\n```"
+          },
+          "difficulty": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A difficulty rating for this stage, from the perspective of a proficient programmer.\n\n- `very_easy`: <5m\n- `easy`: 5-10m \n-`medium`: 30m-1h\n- `hard`: >1h"
+          },
+          "marketing_md": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A short markdown description of this stage, used in the course overview page."
+          },
+          "tester_source_code_url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Link to the source code for the test cases of this stage. Optional."
+          }
         },
         "required": [
           "slug",

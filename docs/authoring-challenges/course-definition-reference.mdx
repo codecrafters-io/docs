@@ -4,147 +4,121 @@ title: "Course Definition Reference"
 description: "Schema for the course-definition.yml file."
 ---
 
-
 <ResponseField name="slug" type="string">
   A unique URL-friendly identifier for your course. Example: `redis`.
 </ResponseField>
-
 
 <ResponseField name="name" type="string">
   The name of your course. Example: `Build your own Redis`.
 </ResponseField>
 
-
 <ResponseField name="short_name" type="string">
   A short name for your course. Example: `Redis`.
 </ResponseField>
-
 
 <ResponseField name="release_status" type="string">
   The release status of your course. Accepted values: `alpha`, `beta`, `live`.
 </ResponseField>
 
-
 <ResponseField name="description_md" type="string">
   A markdown description for your course. 25-50 words.
 </ResponseField>
 
-
 <ResponseField name="short_description_md" type="string">
-  A short description of your course, < 15 words.
+  A short description of your course, &lt; 15 words.
 </ResponseField>
-
 
 <ResponseField name="completion_percentage" type="integer">
-  The percentage of users who complete this course. Set to 5% if we don't have data yet.
+  The percentage of users who complete this course. Set to 5% if we don't have
+  data yet.
 </ResponseField>
-
 
 <ResponseField name="languages" type="array">
   <Expandable title="item properties">
     <ResponseField name="slug" type="string">
-  
-</ResponseField>
+      Slug for the language. Example: `python`. Full list of languages available
+      [here](https://backend.codecrafters.io/api/v1/languages).
+    </ResponseField>
 
-
-<ResponseField name="starter_repository_url" type="string">
-  
-</ResponseField>
-
-
+    <ResponseField name="starter_repository_url" type="string">
+      URL to the starter repository for this language. Example:
+      https://github.com/codecrafters-io/redis-starter-ruby
+    </ResponseField>
 
   </Expandable>
 </ResponseField>
-
 
 <ResponseField name="marketing" type="object">
   <Expandable title="properties">
     <ResponseField name="difficulty" type="string">
-  
-</ResponseField>
+      The difficulty of the course. Accepted values: `easy`, `medium`, `hard`.
+    </ResponseField>
 
+    <ResponseField name="sample_extension_idea_title" type="string">
+      A title for the sample extension idea. Example: `Geospatial Queries`
+    </ResponseField>
 
-<ResponseField name="sample_extension_idea_title" type="string">
-  
-</ResponseField>
+    <ResponseField name="sample_extension_idea_description" type="string">
+      A description for the sample extension idea. Example: `A Redis server that
+      can respond to geospatial queries`
+    </ResponseField>
 
+    <ResponseField name="testimonials" type="array">
+      <Expandable title="item properties">
+        <ResponseField name="author_name" type="string"></ResponseField>
 
-<ResponseField name="sample_extension_idea_description" type="string">
-  
-</ResponseField>
+        <ResponseField name="author_description" type="string"></ResponseField>
 
+        <ResponseField name="author_avatar" type="string"></ResponseField>
 
-<ResponseField name="testimonials" type="array">
-  <Expandable title="item properties">
-    <ResponseField name="author_name" type="string">
-  
-</ResponseField>
+        <ResponseField name="link" type="string"></ResponseField>
 
-
-<ResponseField name="author_description" type="string">
-  
-</ResponseField>
-
-
-<ResponseField name="author_avatar" type="string">
-  
-</ResponseField>
-
-
-<ResponseField name="link" type="string">
-  
-</ResponseField>
-
-
-<ResponseField name="text" type="string">
-  
-</ResponseField>
-
-
+        <ResponseField name="text" type="string"></ResponseField>
+      </Expandable>
+    </ResponseField>
 
   </Expandable>
 </ResponseField>
-
-
-
-  </Expandable>
-</ResponseField>
-
 
 <ResponseField name="stages" type="array">
   <Expandable title="item properties">
     <ResponseField name="slug" type="string">
-  
-</ResponseField>
+      A unique identifier for this stage. Your tester will reference this value.
+      Example: `init`
+    </ResponseField>
 
+    <ResponseField name="name" type="string">
+      The name of this stage. Example: `Respond to PING`
+    </ResponseField>
 
-<ResponseField name="name" type="string">
-  
-</ResponseField>
+    <ResponseField name="description_md" type="string">
+      A markdown description for this stage, rendered in the 'Your Task' card.
+      Example: ``` In this stage, you'll respond to the
+      [PING](https://redis.io/commands/ping) command. Your server should respond
+      with `+PONG\r\n`, which is "PONG" encoded as a [RESP simple
+      string](https://redis.io/docs/reference/protocol-spec/#resp-simple-strings).
+      Since the tester client _only_ sends the PING command at the moment, it's
+      okay to ignore what the client sends and hardcode a response. We'll get to
+      parsing client input in later stages. ```
+    </ResponseField>
 
+    <ResponseField name="difficulty" type="string">
+      A difficulty rating for this stage, from the perspective of a proficient
+      programmer.
+    - `very_easy`: &lt;5m
+    - `easy`: 5-10m
+    -`medium`: 30m-1h
+    - `hard`: &gt;1h
+    </ResponseField>
 
-<ResponseField name="description_md" type="string">
-  
-</ResponseField>
+    <ResponseField name="marketing_md" type="string">
+      A short markdown description of this stage, used in the course overview
+      page.
+    </ResponseField>
 
-
-<ResponseField name="difficulty" type="string">
-  
-</ResponseField>
-
-
-<ResponseField name="marketing_md" type="string">
-  
-</ResponseField>
-
-
-<ResponseField name="tester_source_code_url" type="string">
-  
-</ResponseField>
-
-
+    <ResponseField name="tester_source_code_url" type="string">
+      Link to the source code for the test cases of this stage. Optional.
+    </ResponseField>
 
   </Expandable>
 </ResponseField>
-
-
