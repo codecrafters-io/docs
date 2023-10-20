@@ -13,8 +13,8 @@
     "ultraDark": "#077C72"
   },
   "topbarCtaButton": {
-    "name": "Start 3-day trial",
-    "url": "https://app.codecrafters.io/pay"
+    "name": "Try Now",
+    "url": "https://app.codecrafters.io/"
   },
   "topbarLinks": [
     {
