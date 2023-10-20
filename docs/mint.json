@@ -39,8 +39,15 @@
   "navigation": [
     {
       "group": "Getting Started",
+      "pages": ["introduction"]
+    },
+    {
+      "group": "Authoring Challenges",
       "pages": [
-        "introduction"
+        "contributors/authoring-challenges/planning-your-challenge",
+        "contributors/authoring-challenges/pre-launching-your-challenge",
+        "contributors/authoring-challenges/building-your-challenge",
+        "contributors/authoring-challenges/course-definition-reference"
       ]
     },
     {
@@ -55,22 +62,15 @@
     },
     {
       "group": "CLI",
-      "pages": [
-        "cli/installation"
-      ]
+      "pages": ["cli/installation"]
     },
     {
       "group": "Billing",
-      "pages": [
-        "billing/get-an-invoice"
-      ]
+      "pages": ["billing/get-an-invoice"]
     },
     {
       "group": "Community",
-      "pages": [
-        "community/discord-access",
-        "community/partner-program"
-      ]
+      "pages": ["community/discord-access", "community/partner-program"]
     },
     {
       "group": "Profile Pages",
@@ -81,9 +81,13 @@
     },
     {
       "group": "Account",
-      "pages": [
-        "account/delete-account"
-      ]
+      "pages": ["account/delete-account"]
+    }
+  ],
+  "tabs": [
+    {
+      "name": "Contributor Guides",
+      "url": "contributors"
     }
   ],
   "footerSocials": {
