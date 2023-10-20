@@ -1,0 +1,45 @@
+---
+title: "Choosing concepts"
+description: "The following tips should help you choose what concepts to build."
+---
+
+We recommend choosing concepts based on what will be most engaging to learners going through [challenges](https://app.codecrafters.io/catalog). Some
+concepts will apply to the challenge as a whole, others might only apply to specific stages.
+
+When going through the stage instructions for challenges, think about:
+
+1. What concepts one would need to know to solve the stage?
+2. What concepts are likely to trigger natural curiosity in learners as they go through the stage?
+
+For example, here are the stage 2 instructions for the HTTP server challenge:
+
+> In this stage, you'll respond to a HTTP request with a 200 OK response.
+>
+> Your program will need to:
+>
+> - Accept a TCP connection
+> - Read data from the connection (we'll get to parsing it in later stages)
+> - Respond with `HTTP/1.1 200 OK\r\n\r\n` (there are two `\r\n`s at the end)
+>   - `HTTP/1.1 200 OK` is the [HTTP Status Line](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#status_line).
+>   - `\r\n`, also known as [CRLF](https://developer.mozilla.org/en-US/docs/Glossary/CRLF), is the end-of-line marker that HTTP uses.
+>   - The first `\r\n` signifies the end of the status line.
+>   - The second `\r\n` signifies the end of the response headers section (which is empty in this case).
+>
+> It's okay to ignore the data received from the connection for now. We'll get to parsing it in later stages.
+>
+> For more details on the structure of a HTTP response, view the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#http_responses).
+
+and here are some concepts that might be useful in this stage:
+
+- **TCP: An overview**: Learn about the TCP protocol and how it works
+- **HTTP Response Structure**: Learn about the structure of HTTP responses
+- **HTTP Request Structure**: Learn about the structure of HTTP requests
+- **HTTP Status Codes**: Learn about common HTTP status codes and what they mean
+- **HTTP Request Methods**: Learn about HTTP request methods (GET, POST etc.) and what they mean
+
+Here are some other concepts that might be useful in the HTTP challenge but not necessarily in this stage:
+
+- **HTTP Headers**: Learn about HTTP headers and how they work.
+- **Persistent HTTP connections**: Learn about persistent HTTP connections and how they work.
+- **HTTP Pipelining**: Learn about how HTTP pipelining allows multiple HTTP requests to be sent over a single TCP connection.
+- **HTTP/1.1 vs HTTP/2**: Learn about the differences between HTTP/1.1 and HTTP/2.
