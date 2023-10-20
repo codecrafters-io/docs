@@ -51,6 +51,17 @@
       ]
     },
     {
+      "group": "Authoring Concepts",
+      "pages": [
+        "contributors/authoring-concepts/introduction",
+        "contributors/authoring-concepts/how-concepts-work",
+        "contributors/authoring-concepts/choosing-concepts",
+        "contributors/authoring-concepts/creating-concepts",
+        "contributors/authoring-concepts/testing-concepts",
+        "contributors/authoring-concepts/publishing-concepts"
+      ]
+    },
+    {
       "group": "Challenges",
       "pages": [
         "challenges/debug-test-failures",
