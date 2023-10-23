@@ -75,6 +75,10 @@
       "pages": ["account/delete-account"]
     },
     {
+      "group": "Contributors",
+      "pages": ["contributors/introduction"]
+    },
+    {
       "group": "Authoring Challenges",
       "pages": [
         "contributors/authoring-challenges/planning-your-challenge",
