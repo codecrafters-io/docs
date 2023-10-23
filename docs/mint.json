@@ -84,6 +84,14 @@
       "pages": ["contributors/introduction"]
     },
     {
+      "group": "Adding Language Support",
+      "pages": [
+        "contributors/adding-language-support/introduction",
+        "contributors/adding-language-support/starter-code",
+        "contributors/adding-language-support/dockerfiles"
+      ]
+    },
+    {
       "group": "Authoring Challenges",
       "pages": [
         "contributors/authoring-challenges/planning-your-challenge",
