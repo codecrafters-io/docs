@@ -13,7 +13,7 @@ The test runner script is run within a container based on this image.
 The test runner script roughly follows this flow:
 
 - Builds the test runner image.
-  - This step is only run it a test runner image doesn't exist already.
+  - This step is only run it a test runner image doesn't exist already or is being re-built.
   - Logs from this step are prefixed with `[build]`.
 - Copies in user's latest code, if it has changed since the image was built.
 - If any files in `CODECRAFTERS_DEPENDENCY_FILE_PATHS` have changed, triggers a re-build of the test runner image (i.e. back to step 1)
