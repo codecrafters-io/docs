@@ -1,5 +1,10 @@
 {
   "name": "CodeCrafters",
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true,
+    "raiseIssue": true
+  },
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -73,6 +78,19 @@
     {
       "group": "Account",
       "pages": ["account/delete-account"]
+    },
+    {
+      "group": "Contributors",
+      "pages": ["contributors/introduction"]
+    },
+    {
+      "group": "Adding Language Support",
+      "pages": [
+        "contributors/adding-language-support/introduction",
+        "contributors/adding-language-support/starter-code",
+        "contributors/adding-language-support/dockerfiles",
+        "contributors/adding-language-support/test-runner-image-interface"
+      ]
     },
     {
       "group": "Authoring Challenges",
