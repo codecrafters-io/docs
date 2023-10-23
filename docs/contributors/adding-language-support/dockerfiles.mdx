@@ -38,3 +38,4 @@ A language pack usually only specifies the minor version of a language. For exam
 - The files required to build dependencies must be stored as CSV in the `CODECRAFTERS_DEPENDENCY_FILE_PATHS` environment variable, so that CodeCrafters can detect
   changes in them and trigger a rebuild when needed.
 - A Dockerfile must only copy in the User's code as the last step. This allows us to share the cached layers between different users.
+- The resulting image should conform to the [Test Runner Image Interface](/contributors/adding-language-support/test-runner-image-interface).
