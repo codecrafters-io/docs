@@ -7,13 +7,50 @@ Starter code is the code that we provide to users when they start a challenge. I
 
 [Here's an example](https://github.com/codecrafters-io/build-your-own-redis/tree/main/compiled_starters/python).
 
-### Pass first stage
+## Required Files
 
-###
+At the minimum, starter code is expected to have the following files:
+
+- `README.md`
+  - A README file that explains how to run the starter code & submit code to CodeCrafters.
+- `codecrafters.yml`
+  - A YAML file with the keys `language_pack` and `debug`.
+  - The name of this files depends on the challenge. `your_docker.sh` for Docker, `your_git.sh` for Git etc.
+- An executable script that runs the starter code.
+- Skeleton code that the user will build upon.
+  - This code must also include a section that can be uncommented to pass the first stage.
+- Any configuration files commonly required by the language / package managers.
+  - For example, `requirements.txt` for Python, `package.json` for JavaScript etc.
+- `.gitignore`
+  - A `.gitignore` file that ignores files commonly ignored by the language.
+- `.gitattributes`
+  - A `.gitattributes` file that sets the `text=auto` for all files (to avoid issues with line endings on Windows).
+
+## First stage solution
+
+To make it easier for users to get started, we automatically generate a solution to the first stage of the challenge. This is done by uncommenting lines in the starter code.
+
+**Example**:
+
+<Frame caption="Stage 1 solution, auto-generated from starter code">
+  <img className="w-full" src="/img/contributors/first-stage-solution.png" />
+</Frame>
+
+The way this works is that [course-sdk](https://github.com/codecrafters-io/course-sdk) will look for markers like this in the starter code:
+
+```python
+# Uncomment this to pass the first stage
+```
+
+These markers will be deleted and any code after them will be uncommented to generate the solution.
+
+The full logic for this is [here](https://github.com/codecrafters-io/course-sdk/blob/main/lib/first_stage_solutions_compiler.rb).
+
+## Templates
 
 Since starter code for different languages are likely to have a lot of similar code, we use templates to create these.
 
-- The raw files are stored under [`starter_templates`](https://github.com/codecrafters-io/build-your-own-redis/tree/main/starter_templates), the compiled versions are under
-  [`compiled_starters`](https://github.com/codecrafters-io/build-your-own-redis/tree/main/compiled_starters).
-- The [`starter-repository-definitions.yml`](https://github.com/codecrafters-io/build-your-own-redis/blob/main/starter-repository-definitions.yml) file contains
+- The raw files are stored under [starter_templates](https://github.com/codecrafters-io/build-your-own-redis/tree/main/starter_templates), the compiled versions are under
+  [compiled_starters](https://github.com/codecrafters-io/build-your-own-redis/tree/main/compiled_starters).
+- The [starter-repository-definitions.yml](https://github.com/codecrafters-io/build-your-own-redis/blob/main/starter-repository-definitions.yml) file contains
   the mapping from template files to their corresponding compiled paths.
