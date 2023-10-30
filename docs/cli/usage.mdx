@@ -1,0 +1,36 @@
+---
+title: "How do I use the CLI?"
+---
+
+The CodeCrafters CLI is a command-line tool that allows you to run tests & view test results
+from your local machine. It is available for Mac, Linux and Windows (via [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)).
+
+If you haven't installed the CLI yet, you can do so by following the instructions [here](/cli/installation).
+
+To use the CLI, navigate to a CodeCrafters repository on your local machine and run the `codecrafters test` command:
+
+```bash
+codecrafters test
+```
+
+You should see logs like this:
+
+```bash
+Running tests on your codebase. Streaming logs...
+
+[compile]    Compiling redis-starter-rust v0.1.0 (/app)
+[compile]     Finished release [optimized] target(s) in 1.20s
+[compile] Compilation successful.
+
+[stage-1] Running tests for Stage #1: Bind to a port
+[stage-1] $ ./spawn_redis_server.sh
+[stage-1] Connecting to port 6379...
+[your_program] Logs from your program will appear here!
+[stage-1] Looks like your program has terminated. A redis server is expected to be a long-running process.
+[stage-1] Test failed (try setting 'debug: true' in your codecrafters.yml to see more details)
+
+View stage instructions: https://app.codecrafters.io/courses/redis.
+```
+
+You can then make changes to your codebase and re-run the tests by running `codecrafters test` again. You don't
+need to commit your changes using Git to run tests using the CLI.
