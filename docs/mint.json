@@ -108,6 +108,13 @@
         "contributors/authoring-concepts/how-concepts-work",
         "contributors/authoring-concepts/choosing-concepts",
         "contributors/authoring-concepts/creating-concepts",
+        {
+          "group": "Concepts Style Guide",
+          "pages": [
+            "contributors/authoring-concepts/style-guide/introduction",
+            "contributors/authoring-concepts/style-guide/byte-sized-blocks"
+          ]
+        },
         "contributors/authoring-concepts/testing-concepts",
         "contributors/authoring-concepts/publishing-concepts"
       ]

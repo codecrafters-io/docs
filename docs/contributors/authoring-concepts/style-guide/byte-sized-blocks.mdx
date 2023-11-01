@@ -1,0 +1,72 @@
+---
+title: "Byte-Sized Blocks"
+---
+
+Keep each block as short as possible. Where possible, break up blocks into smaller ones.
+
+## Bad Example
+
+> To print variables within a string, you can use `{}` as a placeholder for the variable, and then pass its value as an argument. You can
+> also use multiple placeholders, just remember to supply all the arguments in order.
+>
+> ```rust
+> let name = "Alice";
+> println!("Hello, {}!", name); // "Hello, Alice!"
+>
+> let first_name = "Alice";
+> let last_name = "Smith";
+> print!("Hello, {} {}!", first_name, last_name); // "Hello, Alice Smith!"
+> ```
+
+<Warning>
+  This block introduces two concepts at once: placeholders, and the fact that
+  multiple placeholders can be used.
+</Warning>
+
+## Good Example
+
+<Check>When split into two blocks, this is easier to understand.</Check>
+
+> To print variables within a string, you can use `{}` as a placeholder for the variable, and then pass its value as an argument.
+>
+> ```rust
+> let name = "Alice";
+> println!("Hello, {}!", name); // "Hello, Alice!"
+> ```
+
+> You can also use multiple placeholders, just remember to supply all the arguments in order.
+>
+> ```rust
+> let first_name = "Alice";
+> let last_name = "Smith";
+> print!("Hello, {} {}!", first_name, last_name); // "Hello, Alice Smith!"
+> ```
+
+## Exceptions
+
+### Nested/Auxiliary Content
+
+It's probably okay to break this rule if you're introducing auxiliary information that isn't core to the concept
+at hand.
+
+For example, if you're working on a "Rust Data Types" concept that covers Strings, Integers, Floats and other data types,
+it's probably okay to have a block like this that expands on different integer types:
+
+> **Integer types**
+>
+> Examples include `i32`, `u32`, `i64`, and `u64`. The name of each type gives hints about its features.
+>
+> - `i32` and `i64` and such have an i, meaning they're signed. This means they can be negative, zero, or positive.
+> - `u32` and `u64` and others have a u, showing they're unsigned. They can only be zero or positive.
+>
+> The number at the end like 32 or 64 tells us how much space it uses in memory.
+>
+> ```rust
+> let x: i32 = -5; // A signed 32 bit integer
+> let y: u64 = 5000000000; // A unsigned 64 bit integer
+> ```
+
+Although this block could be broken down into one for signed integers and another for unsigned integers, it's probably not worth it. The
+concept covers multiple data types, and the block is just expanding on one of them.
+
+If this block was in a concept that was solely about integers, it'd probably make sense to split up.
