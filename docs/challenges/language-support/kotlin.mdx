@@ -1,0 +1,75 @@
+---
+title: "Kotlin"
+description: "Learn how to solve CodeCrafters challenges in Kotlin"
+---
+
+# Local development
+
+To run the code for your challenge locally, you'll need `mvn` installed. Our test runners use `mvn` version `3.9.5` (as of November 2023).
+
+The script for your challenge (like `./your_bittorrent.sh`) will automatically compile your code using `mvn package` before executing it.
+
+# File structure
+
+- The files for your solution are placed in the `src/main/kotlin` directory.
+- `src/main/kotlin/Main.kt` contains the `main` function, which is what the test runner executes.
+
+# Adding more files
+
+You can add more files and directories to `src/main/kotlin`. The test runner will include them when compiling your code.
+
+For example, if you added a file at `src/main/kotlin/Foo.kt`, you could use it like so:
+
+<CodeGroup>
+```kotlin src/main/kotlin/Foo.kt
+fun foo() {
+    println("Hello world!")
+}
+```
+
+```kotlin src/main/kotlin/Main.kt
+fun main() {
+    foo() // Uses the foo function from Foo.kt
+}
+```
+
+</CodeGroup>
+
+By default, all files in `src/main/kotlin` are in the `default` package. If you want to extract files into a different package,
+you'll need to add a `package` declaration to the top of the file. Here's what that'd look like:
+
+Let's say you wanted to extract `Foo.kt` into the `com.example.foo` package. You'd add the following to the top of `Foo.kt`:
+
+<CodeGroup>
+
+```kotlin src/main/kotlin/Foo.kt
+package com.example
+
+fun foo() {
+    println("Hello world!")
+}
+```
+
+```kotlin src/main/kotlin/Main.kt
+fun main() {
+    com.example.foo() // Uses the foo function from Foo.kt
+}
+```
+
+</CodeGroup>
+
+# Adding dependencies
+
+You can add dependencies to your project by adding them to your `pom.xml` file.
+
+For example, to add the gson library, add the following to the `<dependencies>` section in your `pom.xml`:
+
+```xml
+<dependency>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.8.6</version>
+</dependency>
+```
+
+When you push your code next, the runner will automatically download the dependency.
