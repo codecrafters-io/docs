@@ -53,7 +53,8 @@
           "group": "Language Support",
           "pages": [
             "challenges/language-support/introduction",
-            "challenges/language-support/kotlin"
+            "challenges/language-support/kotlin",
+            "challenges/language-support/zig"
           ]
         },
         "challenges/debug-test-failures",
