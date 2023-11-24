@@ -1,0 +1,100 @@
+---
+title: "Java"
+description: "Learn how to solve CodeCrafters challenges in Java"
+---
+
+# Local development
+
+To run the code for your challenge locally, you'll need `java` & `mvn` installed. Our test runners use Java 21 (as of November 2023).
+
+The script for your challenge (like `./your_bittorrent.sh`) will automatically compile your code using `mvn` before executing it. It'll
+look something like this:
+
+```sh
+#!/bin/sh
+set -e
+mvn -B --quiet package -Ddir=/tmp/codecrafters-redis-target
+exec java -jar /tmp/codecrafters-redis-target/java_redis.jar "$@"
+```
+
+When running tests on our servers, the `mvn` command will only be run once and then commented out. This ensures that each test only runs the `java -jar ...` line.
+
+# File structure
+
+- The files for your solution are placed in the `src/main/java` directory.
+- `src/main/java/Main.java` contains the `Main` function, which is what the test runner executes.
+
+# Adding more files
+
+You can add more files and directories to the `src/main/java` directory. The test runner will include them when compiling your code.
+
+**TODO**: Add an example of adding a file.
+
+<Note>
+  This section is incomplete, and we'd love your help expanding it. We're already
+  got a similar section in the [Kotlin Guide](/challenges/language-support/kotlin) that you can use as a reference. If you'd like to help out, please
+  open a PR at [codecrafters-io/docs](https://github.com/codecrafters-io/docs).
+</Note>
+
+{/* For example, if you added a file at `app/foo.zig`, you could use it like so:
+
+<CodeGroup>
+
+```zig app/foo.zig
+const std = @import("std");
+
+pub fn bar() void {
+  std.debug.print("Hello World!", .{});
+}
+```
+
+```zig app/main.zig
+const foo = @import("foo.zig");
+
+pub fn main() void {
+  foo.bar() // Uses the bar function from foo.zig
+}
+```
+
+</CodeGroup>
+
+You can also add files in subdirectories. For example, if you added a file at `app/foo/bar.zig`, you could use it like so:
+
+<CodeGroup>
+
+```zig app/foo/bar.zig
+const std = @import("std");
+
+pub fn baz() void {
+  std.debug.print("Hello World!", .{});
+}
+```
+
+```zig app/main.zig
+const bar = @import("foo/bar.zig");
+
+pub fn main() void {
+  bar.baz() // Uses the baz function from foo/bar.zig
+}
+```
+
+</CodeGroup>
+
+*/}
+
+
+# Adding dependencies
+
+You can add dependencies to your project by adding them to your `pom.xml` file.
+
+For example, to add the gson library, add the following to the `<dependencies>` section in your `pom.xml`:
+
+```xml
+<dependency>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.8.6</version>
+</dependency>
+```
+
+When you push your code next, the runner will automatically download the dependency.
