@@ -55,7 +55,8 @@
             "challenges/language-support/introduction",
             "challenges/language-support/java",
             "challenges/language-support/kotlin",
-            "challenges/language-support/zig"
+            "challenges/language-support/zig",
+            "challenges/language-support/go"
           ]
         },
         "challenges/debug-test-failures",

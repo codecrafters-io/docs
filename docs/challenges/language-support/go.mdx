@@ -1,0 +1,121 @@
+---
+title: "Go"
+description: "Learn how to solve CodeCrafters challenges in Go"
+---
+
+<Note>
+  **New to Go?** We recommend checking out [Go by Example](https://gobyexample.com/) to get up to speed.
+</Note>
+
+# Local development
+
+To run the code for your challenge locally, you'll need `go` installed. Our test runners use `go` version `1.19` (as of November 2023).
+
+The script for your challenge (like `./your_bittorrent.sh`) will automatically compile your code using `go build` before executing it.
+
+# File structure
+
+- The files for your solution are placed in the `app/` directory.
+- `app/main.go` contains the `main` function, which is what the test runner executes.
+
+# Adding more files
+
+You can add more files and directories to `app/`. The test runner will include them when compiling your code.
+
+For example, if you added a file at `app/foo.go`, you could use it like so:
+
+<CodeGroup>
+```go app/foo.go
+package main
+
+fun foo() {
+    println("Hello world!")
+}
+```
+
+```go app/main.go
+package main
+
+fun main() {
+    foo() // Uses the foo function from foo.go
+}
+```
+</CodeGroup>
+
+All files in `app/` must have a `package main` declaration at the top of the file. If you want to extract files into a different package,
+you can create a new folder in `app/` and add the `package` declaration to the top of each file in that folder.
+
+Let's say you wanted to extract `foo.go` into the `bar` package. You'd move `foo.go` into the `app/bar` and add the relevant `package` declaration to the top of `foo.go`:
+
+<CodeGroup>
+```go app/bar/foo.go
+package bar
+
+fun foo() {
+    println("Hello world!")
+}
+```
+
+```go app/main.go
+package main
+
+import "github.com/codecrafters-io/dns-server-starter-go/app/bar" // Adjust this based on the package name in go.mod
+
+fun main() {
+    bar.foo() // Uses the foo function from app/bar/foo.go
+}
+```
+</CodeGroup>
+
+Note that you'll need to update the import statement in `main.go` to use the new package name (Example: `github.com/codecrafters-io/dns-server-starter-go/app/bar`). You'll
+find the first part of the package name in `go.mod`.
+
+# Adding dependencies
+
+You can add dependencies to your project by adding them to your `go.mod` file. You can use the `go get` command for this.
+
+For example, to add the `github.com/spf13/cobra` library, you can run the following command:
+
+```bash
+$ go get github.com/spf13/cobra
+
+# Output:
+#
+# go: downloading github.com/spf13/cobra v1.8.0
+# go: downloading github.com/inconshreveable/mousetrap v1.1.0
+# go: added github.com/spf13/cobra v1.8.0
+```
+
+This'll add the following line to your `go.mod` file:
+
+```go
+require github.com/spf13/cobra v1.1.3
+```
+
+It'll also make changes to your `go.sum` file.
+
+When you push your code next, the runner will automatically download the dependency.
+
+You can use the dependency in your code like so:
+
+<CodeGroup>
+```go app/main.go
+package main
+
+import (
+    "github.com/spf13/cobra"
+)
+
+func main() {
+    var rootCmd = &cobra.Command{
+        Use:   "test",
+        Short: "test",
+        Run: func(cmd *cobra.Command, args []string) {
+            // Do Stuff Here
+        },
+    }
+
+    rootCmd.Execute()
+}
+```
+</CodeGroup>
