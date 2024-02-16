@@ -1,0 +1,80 @@
+---
+title: "How do I fix errors when cloning my repository?"
+---
+
+When you start a CodeCrafters challenge, we create a Git repository for you to work in. If you're facing issues cloning your repository,
+here are a few things you can try:
+
+# Check our status page
+
+Visit https://status.codecrafters.io/ and make sure that the "Git Operations" component is green.
+
+<Frame>
+  <img className="w-full" src="/img/fix-clone-errors/git-status.png" />
+</Frame>
+
+If the "Git Operations" component is red, it means that we're experiencing issues with our Git infrastructure. In this case, wait for the
+issue to be resolved and then try cloning your repository again.
+
+# Check connectivity to git.codecrafters.io
+
+If the status page looks good, the next step is to check if you can connect to `git.codecrafters.io`. You can do this by running:
+
+```sh
+curl -vvv https://git.codecrafters.io
+```
+
+The logs should look something like this:
+
+```sh
+*   Trying 192.241.134.100:443...
+* Connected to git.codecrafters.io (192.241.134.100) port 443 (#0)
+* ALPN: offers h2,http/1.1
+* (304) (OUT), TLS handshake, Client hello (1):
+*  CAfile: /etc/ssl/cert.pem
+*  CApath: none
+* (304) (IN), TLS handshake, Server hello (2):
+* (304) (IN), TLS handshake, Unknown (8):
+* (304) (IN), TLS handshake, Certificate (11):
+* (304) (IN), TLS handshake, CERT verify (15):
+* (304) (IN), TLS handshake, Finished (20):
+* (304) (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / AEAD-CHACHA20-POLY1305-SHA256
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: CN=*.codecrafters.io
+*  start date: Jul 19 00:00:00 2023 GMT
+*  expire date: Jul 24 23:59:59 2024 GMT
+*  subjectAltName: host "git.codecrafters.io" matched cert's "*.codecrafters.io"
+*  issuer: C=US; O=DigiCert Inc; OU=www.digicert.com; CN=RapidSSL TLS RSA CA G1
+*  SSL certificate verify ok.
+* using HTTP/2
+* h2 [:method: GET]
+* h2 [:scheme: https]
+* h2 [:authority: git.codecrafters.io]
+* h2 [:path: /]
+* h2 [user-agent: curl/8.1.2]
+* h2 [accept: */*]
+* Using Stream ID: 1 (easy handle 0x12c810e00)
+> GET / HTTP/2
+> Host: git.codecrafters.io
+> User-Agent: curl/8.1.2
+> Accept: */*
+>
+< HTTP/2 404
+< cache-control: no-cache, max-age=0, must-revalidate
+< date: Fri, 16 Feb 2024 19:08:42 GMT
+< expires: Fri, 01 Jan 1980 00:00:00 GMT
+< pragma: no-cache
+< server: Caddy
+< server: lighttpd/1.4.54
+<
+* Connection #0 to host git.codecrafters.io left intact
+```
+
+If you a "connection timed out" error instead, this could be due to a firewall or network issue. We recommend disabling your firewall or using a different
+network to see if that resolves the issue.
+
+Sometimes, depending on your ISP's rules, using a VPN can help resolve this issue. If you don't have a VPN installed, we recommend using [1.1.1.1](https://1.1.1.1/).
+
+If none of these options work, please reach out to us at [hello@codecrafters.io](mailto:hello@codecrafters.io) and we'll take a look!
