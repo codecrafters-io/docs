@@ -149,5 +149,11 @@
     "plausible": {
       "domain": "docs.codecrafters.io"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/turbo",
+      "destination": "/membership/turbo"
+    }
+  ]
 }
