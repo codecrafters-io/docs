@@ -47,6 +47,10 @@
       "pages": ["introduction"]
     },
     {
+      "group": "Membership Benefits",
+      "pages": ["membership/turbo"]
+    },
+    {
       "group": "Challenges",
       "pages": [
         {
