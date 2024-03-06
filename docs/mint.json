@@ -72,7 +72,7 @@
     },
     {
       "group": "CLI",
-      "pages": ["cli/installation", "cli/update", "cli/usage"]
+      "pages": ["cli/installation", "cli/usage", "cli/update"]
     },
     {
       "group": "Billing",
