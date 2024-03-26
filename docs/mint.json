@@ -48,7 +48,12 @@
     },
     {
       "group": "Membership Benefits",
-      "pages": ["membership/content", "membership/turbo", "membership/perks"]
+      "pages": [
+        "membership/content",
+        "membership/turbo",
+        "membership/perks",
+        "membership/anonymous-mode"
+      ]
     },
     {
       "group": "Challenges",
@@ -162,6 +167,10 @@
     {
       "source": "/content",
       "destination": "/membership/content"
+    },
+    {
+      "source": "/anonymous",
+      "destination": "/membership/anonymous-mode"
     }
   ]
 }
