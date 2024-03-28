@@ -48,7 +48,7 @@
     },
     {
       "group": "Membership Benefits",
-      "pages": ["membership/content", "membership/turbo", "membership/perks", "membership/anonymous-mode"]
+      "pages": ["membership/content", "membership/turbo", "membership/anonymous-mode", "membership/perks"]
     },
     {
       "group": "Challenges",
