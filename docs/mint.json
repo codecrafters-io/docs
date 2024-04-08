@@ -29,10 +29,10 @@
   ],
   "anchors": [
     {
-      "name": "Community",
-      "icon": "discord",
+      "name": "Forum",
+      "icon": "discourse",
       "color": "#5865F2",
-      "url": "https://discord.gg/DeqUD2P"
+      "url": "https://forum.codecrafters.io/"
     },
     {
       "name": "Demo",
@@ -48,7 +48,12 @@
     },
     {
       "group": "Membership Benefits",
-      "pages": ["membership/content", "membership/turbo", "membership/anonymous-mode", "membership/perks"]
+      "pages": [
+        "membership/content",
+        "membership/turbo",
+        "membership/anonymous-mode",
+        "membership/perks"
+      ]
     },
     {
       "group": "Challenges",
@@ -80,7 +85,7 @@
     },
     {
       "group": "Community",
-      "pages": ["community/discord-access", "community/partner-program"]
+      "pages": ["community/forum-access"]
     },
     {
       "group": "Profile Pages",
@@ -142,7 +147,6 @@
     }
   ],
   "footerSocials": {
-    "discord": "https://discord.com/invite/DeqUD2P",
     "twitter": "https://twitter.com/codecraftersio",
     "github": "https://github.com/codecrafters-io"
   },
