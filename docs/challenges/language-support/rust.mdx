@@ -1,0 +1,77 @@
+---
+title: "Rust"
+description: "Learn how to solve CodeCrafters challenges in Rust"
+---
+
+<Note>
+  **New to Rust?** We recommend checking out [Rust by
+  Example](https://doc.rust-lang.org/rust-by-example/) to get up to speed.
+</Note>
+
+# Local development
+
+To run the code for your challenge locally, you'll need `Rust` installed. Our test runners use version `1.76` (as of April 2024).
+
+The script for your challenge (like `./your_bittorrent.sh`) will automatically compile and run your code using `cargo run`. It'll
+look something like this:
+
+```sh
+#!/bin/sh
+
+exec cargo run \
+    --quiet \
+    --release \
+    --target-dir=/tmp/codecrafters-bittorrent-target \
+    --manifest-path $(dirname "$0")/Cargo.toml -- "$@"
+```
+
+# File structure
+
+- The files for your solution are placed in the `src` directory.
+- `src/main.rs` contains the `main` function, which is what the test runner executes.
+
+# Adding more files
+
+You can add more files and directories to the `src` directory. The test runner will include them when compiling your code.
+
+For example, if you added a file at `src/foo.rs`, you could use it like so:
+
+<CodeGroup>
+
+```Rust src/foo.rs
+pub fn foo() {
+    println!("Hello World!");
+}
+```
+
+```Rust src/main.rs
+mod foo;
+
+fn main() {
+  foo:foo(); // Calls the foo function from foo.rs
+}
+```
+
+</CodeGroup>
+
+<Note>
+  Remember to make `foo()` accessible to `main.rs` by adding the `pub`
+  identifier
+</Note>
+
+# Adding dependencies
+
+Since version 1.62, Rust allows adding dependencies using `cargo add`.
+
+For example, to add the `rand` crate, run the following command:
+
+```bash
+cargo add rand
+```
+
+This command will automatically find the latest version of the `rand` crate and add it to your `Cargo.toml` file:
+
+```toml
+[dependencies]
+rand = "0.8.5"
+```
