@@ -1,0 +1,80 @@
+---
+title: "Python"
+description: "Learn how to solve CodeCrafters challenges in Python"
+---
+
+<Note>
+  **New to Python?** We recommend checking out [Automate the Boring Stuff with
+  Python](https://automatetheboringstuff.com/) to get up to speed.
+</Note>
+
+# Local development
+
+To run the code for your challenge locally, you'll need `python3` installed. Our test runners use version `3.12` (as of April 2024).
+
+The script for your challenge (like `./spawn_redis_server.sh`) will run the code using this version of the Python interpreter. It looks something like this:
+
+```sh
+#!/bin/sh
+
+exec python3 -m app.main "$@"
+```
+
+# File structure
+
+- The files for your solution are placed in the `app/` directory.
+- `app/main.py` contains the `main` function, which is what the test runner executes.
+
+# Adding more files
+
+You can add more files and directories to `app/`. The test runner will include them when compiling your code.
+
+For example, if you added a file at `app/foo.py`, you could use it like so:
+
+<CodeGroup>
+```Python app/foo.py
+def foo():
+    print("Hello world!")
+````
+
+```Python app/main.py
+
+from app.foo import foo
+
+def main():
+    foo() // Uses the foo function from foo.py
+```
+
+</CodeGroup>
+
+# Adding dependencies
+
+<Note>
+  Not all challenges support managing dependencies via Pipenv at the moment.
+  This will be fixed with the next Python version update.
+</Note>
+
+We use **Pipenv** for managing dependencies.
+
+First install **Pipenv** using `pip`
+
+```bash
+pip install pipenv
+```
+
+Now you can add dependencies to your project using `pipenv`
+
+For example, to add the `requests` library, you can run the following command:
+
+```bash
+pipenv install requests
+```
+
+This will create a virtual environment (if it doesn't exist) and add the following line to your `Pipfile`:
+
+```toml
+[packages]
+requests = "*"
+```
+
+It’ll also make changes to your `Pipfile.lock`.
