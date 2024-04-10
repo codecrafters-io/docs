@@ -4,7 +4,8 @@ description: "Learn how to solve CodeCrafters challenges in Python"
 ---
 
 <Note>
-  **New to Python?** We recommend checking out [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/) to get up to speed.
+  **New to Python?** We recommend checking out [Automate the Boring Stuff with
+  Python](https://automatetheboringstuff.com/) to get up to speed.
 </Note>
 
 # Local development
@@ -12,6 +13,7 @@ description: "Learn how to solve CodeCrafters challenges in Python"
 To run the code for your challenge locally, you'll need `Python` installed. Our test runners use `Python` version `3.12` (as of April 2024).
 
 The script for your challenge (like `./spawn_redis_server.sh`) will run the code using this version of the Python interpreter. It looks something like this:
+
 ```sh
 #!/bin/sh
 
@@ -47,10 +49,27 @@ def main():
 
 # Adding dependencies
 
-You can add dependencies to your project by installing them using `pip`
+We use **Pipenv** for managing dependencies.
+
+First install **Pipenv** using `pip`
+
+```bash
+pip install pipenv
+```
+
+Now you can add dependencies to your project using `pipenv`
 
 For example, to add the `requests` library, you can run the following command:
 
 ```bash
-$ pip install requests
+pipenv install requests
 ```
+
+This will create a virtual environment (if it doesn't exist) and add the following line to your `Pipfile`:
+
+```toml
+[packages]
+requests = "*"
+```
+
+It’ll also make changes to your `Pipfile.lock`.
