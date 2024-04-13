@@ -22,67 +22,66 @@ When running tests on our servers, the `mvn` command will only be run once and t
 # File structure
 
 - The files for your solution are placed in the `src/main/java` directory.
-- `src/main/java/Main.java` contains the `Main` function, which is what the test runner executes.
+- `src/main/java/Main.java` contains the `main` function, which is what the test runner executes.
 
 # Adding more files
 
-You can add more files and directories to the `src/main/java` directory. The test runner will include them when compiling your code.
+You can add more files and directories to `src/main/java`. The test runner will include them when compiling your code.
 
-**TODO**: Add an example of adding a file.
-
-<Note>
-  This section is incomplete, and we'd love your help expanding it. We're already
-  got a similar section in the [Kotlin Guide](/challenges/language-support/kotlin) that you can use as a reference. If you'd like to help out, please
-  open a PR at [codecrafters-io/docs](https://github.com/codecrafters-io/docs).
-</Note>
-
-{/* For example, if you added a file at `app/foo.zig`, you could use it like so:
+For example, if you added a file at `src/main/java/Foo.java`, you could use it like so:
 
 <CodeGroup>
-
-```zig app/foo.zig
-const std = @import("std");
-
-pub fn bar() void {
-  std.debug.print("Hello World!", .{});
+```java src/main/java/Foo.java
+public class Foo {
+    public static void foo() {
+        System.out.println("Hello world!");
+    }
 }
 ```
 
-```zig app/main.zig
-const foo = @import("foo.zig");
-
-pub fn main() void {
-  foo.bar() // Uses the bar function from foo.zig
+```java src/main/java/Main.java
+public class Main {
+    public static void main(String[] args) {
+        Foo.foo();  // calls the method foo() from Foo class in Foo.java
+    }
 }
 ```
 
 </CodeGroup>
 
-You can also add files in subdirectories. For example, if you added a file at `app/foo/bar.zig`, you could use it like so:
+By default, all files in `src/main/java` are in the `default` package. If you want to extract files into a different package,
+you'll need to add a `package` declaration to the top of the file and change its location. Here's what that'd look like:
+
+Let's say you wanted to extract `Foo.java` into the `com.example` package. Store `Foo.java` at `src/main/java/com/example/Foo.java` and add the following lines:
 
 <CodeGroup>
 
-```zig app/foo/bar.zig
-const std = @import("std");
+```java src/main/java/com/example/Foo.java
+package com.example
 
-pub fn baz() void {
-  std.debug.print("Hello World!", .{});
+public class Foo {
+    public static void foo() {
+        System.out.println("Hello world!");
+    }
 }
 ```
 
-```zig app/main.zig
-const bar = @import("foo/bar.zig");
+```java src/main/java/Main.java
+import com.example.Foo;
 
-pub fn main() void {
-  bar.baz() // Uses the baz function from foo/bar.zig
+public class Main {
+    public static void main(String[] args) {
+      Foo.foo();  // Uses the foo function from Foo class in the com.example package
+    }
 }
 ```
 
 </CodeGroup>
 
-*/}
-
-
+<Tip>
+  Use an IDE like IntelliJ IDEA which will automatically offer to move your file
+  to a directory matching the package name.
+</Tip>
 # Adding dependencies
 
 You can add dependencies to your project by adding them to your `pom.xml` file.
