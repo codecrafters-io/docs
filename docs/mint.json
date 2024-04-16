@@ -62,12 +62,15 @@
           "group": "Language Support",
           "pages": [
             "challenges/language-support/introduction",
+            "challenges/language-support/cpp",
+            "challenges/language-support/csharp",
             "challenges/language-support/go",
             "challenges/language-support/java",
+            "challenges/language-support/javascript",
             "challenges/language-support/kotlin",
-            "challenges/language-support/zig",
+            "challenges/language-support/python",
             "challenges/language-support/rust",
-            "challenges/language-support/python"
+            "challenges/language-support/zig"
           ]
         },
         "challenges/debug-test-failures",

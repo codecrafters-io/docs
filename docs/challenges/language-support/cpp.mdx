@@ -1,0 +1,99 @@
+---
+title: "Java"
+description: "Learn how to solve CodeCrafters challenges in Java"
+---
+
+# Local development
+
+To run the code for your challenge locally, you'll need `java` & `mvn` installed. Our test runners use Java 21 (as of November 2023).
+
+The script for your challenge (like `./your_bittorrent.sh`) will automatically compile your code using `mvn` before executing it. It'll
+look something like this:
+
+```sh
+#!/bin/sh
+set -e
+mvn -B --quiet package -Ddir=/tmp/codecrafters-redis-target
+exec java -jar /tmp/codecrafters-redis-target/java_redis.jar "$@"
+```
+
+When running tests on our servers, the `mvn` command will only be run once and then commented out. This ensures that each test only runs the `java -jar ...` line.
+
+# File structure
+
+- The files for your solution are placed in the `src/main/java` directory.
+- `src/main/java/Main.java` contains the `main` function, which is what the test runner executes.
+
+# Adding more files
+
+You can add more files and directories to `src/main/java`. The test runner will include them when compiling your code.
+
+For example, if you added a file at `src/main/java/Foo.java`, you could use it like so:
+
+<CodeGroup>
+```java src/main/java/Foo.java
+public class Foo {
+    public static void foo() {
+        System.out.println("Hello world!");
+    }
+}
+```
+
+```java src/main/java/Main.java
+public class Main {
+    public static void main(String[] args) {
+        Foo.foo();  // calls the method foo() from Foo class in Foo.java
+    }
+}
+```
+
+</CodeGroup>
+
+By default, all files in `src/main/java` are in the `default` package. If you want to extract files into a different package,
+you'll need to add a `package` declaration to the top of the file and change its location. Here's what that'd look like:
+
+Let's say you wanted to extract `Foo.java` into the `com.example` package. Store `Foo.java` at `src/main/java/com/example/Foo.java` and add the following lines:
+
+<CodeGroup>
+
+```java src/main/java/com/example/Foo.java
+package com.example
+
+public class Foo {
+    public static void foo() {
+        System.out.println("Hello world!");
+    }
+}
+```
+
+```java src/main/java/Main.java
+import com.example.Foo;
+
+public class Main {
+    public static void main(String[] args) {
+      Foo.foo();  // Uses the foo function from Foo class in the com.example package
+    }
+}
+```
+
+</CodeGroup>
+
+<Tip>
+  Use an IDE like IntelliJ IDEA which will automatically offer to move your file
+  to a directory matching the package name.
+</Tip>
+# Adding dependencies
+
+You can add dependencies to your project by adding them to your `pom.xml` file.
+
+For example, to add the gson library, add the following to the `<dependencies>` section in your `pom.xml`:
+
+```xml
+<dependency>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.8.6</version>
+</dependency>
+```
+
+When you push your code next, the runner will automatically download the dependency.
