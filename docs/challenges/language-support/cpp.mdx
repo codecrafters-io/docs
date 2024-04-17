@@ -1,99 +1,92 @@
 ---
-title: "Java"
-description: "Learn how to solve CodeCrafters challenges in Java"
+title: "C++"
+description: "Learn how to solve CodeCrafters challenges in C++"
 ---
 
 # Local development
 
-To run the code for your challenge locally, you'll need `java` & `mvn` installed. Our test runners use Java 21 (as of November 2023).
+To run the code for your challenge locally, you'll need `cmake` & `make` installed. Our test runners use Java 21 (as of November 2023).
 
-The script for your challenge (like `./your_bittorrent.sh`) will automatically compile your code using `mvn` before executing it. It'll
+The script for your challenge (like `./your_sqlite3.sh`) will automatically compile your code using the rules defined in `CMakeLists.txt` before executing it. It'll
 look something like this:
 
 ```sh
 #!/bin/sh
-set -e
-mvn -B --quiet package -Ddir=/tmp/codecrafters-redis-target
-exec java -jar /tmp/codecrafters-redis-target/java_redis.jar "$@"
-```
 
-When running tests on our servers, the `mvn` command will only be run once and then commented out. This ensures that each test only runs the `java -jar ...` line.
+set -e
+cmake $(dirname $0) > /dev/null
+make > /dev/null
+exec ./server "$@"
+```
 
 # File structure
 
-- The files for your solution are placed in the `src/main/java` directory.
-- `src/main/java/Main.java` contains the `main` function, which is what the test runner executes.
+- The files for your solution are placed in the `src/` directory.
+- `src/Server.cpp` contains the `main` function, which is what the test runner executes.
 
 # Adding more files
 
-You can add more files and directories to `src/main/java`. The test runner will include them when compiling your code.
+You can add more files and directories to `src/`. The test runner will include them when compiling your code.
 
-For example, if you added a file at `src/main/java/Foo.java`, you could use it like so:
+For example, if you added a file at `src/Foo.hpp`, you could use it like so:
 
 <CodeGroup>
-```java src/main/java/Foo.java
-public class Foo {
-    public static void foo() {
-        System.out.println("Hello world!");
-    }
-}
-```
+```cpp src/Foo.hpp
+#pragma once
 
-```java src/main/java/Main.java
-public class Main {
-    public static void main(String[] args) {
-        Foo.foo();  // calls the method foo() from Foo class in Foo.java
-    }
+#include <iostream>
+
+void foo() {
+std::cout << "Hello, World!";
 }
-```
+
+````
+
+```cpp src/Server.cpp
+#include "Foo.hpp"
+
+int main(int argc, char* argv[]) {
+    foo()   // calls foo() defined in src/Foo.hpp
+}
+````
 
 </CodeGroup>
 
-By default, all files in `src/main/java` are in the `default` package. If you want to extract files into a different package,
-you'll need to add a `package` declaration to the top of the file and change its location. Here's what that'd look like:
+<Note>
+  `#pragma once` is a preprocessor directive that ensures the header file is
+  only included once to prevent any duplication issues.
+</Note>
 
-Let's say you wanted to extract `Foo.java` into the `com.example` package. Store `Foo.java` at `src/main/java/com/example/Foo.java` and add the following lines:
-
-<CodeGroup>
-
-```java src/main/java/com/example/Foo.java
-package com.example
-
-public class Foo {
-    public static void foo() {
-        System.out.println("Hello world!");
-    }
-}
-```
-
-```java src/main/java/Main.java
-import com.example.Foo;
-
-public class Main {
-    public static void main(String[] args) {
-      Foo.foo();  // Uses the foo function from Foo class in the com.example package
-    }
-}
-```
-
-</CodeGroup>
-
-<Tip>
-  Use an IDE like IntelliJ IDEA which will automatically offer to move your file
-  to a directory matching the package name.
-</Tip>
 # Adding dependencies
 
-You can add dependencies to your project by adding them to your `pom.xml` file.
+Adding third-party dependencies to a C++ project involves the following steps:
 
-For example, to add the gson library, add the following to the `<dependencies>` section in your `pom.xml`:
+<Steps>
+  <Step title="Download the library">
+    Download the library files from the source.
+    <Note>
+      Some libraries come built into your operating system and don't need to be
+      installed. E.g. `pthread` comes built-in to Unix systems (Linux and
+      macOS).{" "}
+    </Note>
+  </Step>
+  <Step title="Update your Include Path">
+ Add the following line to your `CMakeLists.txt` file:
 
-```xml
-<dependency>
-  <groupId>com.google.code.gson</groupId>
-  <artifactId>gson</artifactId>
-  <version>2.8.6</version>
-</dependency>
+```CMake
+include_directories(/path/to/my_library/include)
 ```
 
-When you push your code next, the runner will automatically download the dependency.
+    This will tell the compiler where to find the headers for your library.
+
+  </Step>
+  <Step title="Link against the library">
+    Add the following line to the `CMakeLists.txt` file:
+```CMake
+target_link_libraries(server my_library)
+```
+
+This will link the library against the build target.
+
+  </Step>
+</Steps>

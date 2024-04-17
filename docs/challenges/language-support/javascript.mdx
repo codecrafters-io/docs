@@ -19,7 +19,7 @@ exec node app/main.js "$@"
 # File structure
 
 - The files for your solution are placed in the `app/` directory.
-- `app/main.js` contains the `main()` function, which is what the test runner executes.
+- The test runner executes `app/main.js`
 
 # Adding more files
 
@@ -44,10 +44,9 @@ module.exports = { foo, bar };
 ```javascript app/main.js
 const { foo, bar } = require('./foo');
 
-function main() {
-    foo();  // prints 'Hello from foo!'
-    bar();  // prints 'Hello from bar!'
-}
+
+foo();  // prints 'Hello from foo!'
+bar();  // prints 'Hello from bar!'
 ````
 
 </CodeGroup>
@@ -58,14 +57,8 @@ function main() {
 
 You can add dependencies to your project using `npm`
 
-For example, to add the gson library, add the following to the `<dependencies>` section in your `pom.xml`:
+For example, to add the `lodash` library, run the following command:
 
-```xml
-<dependency>
-  <groupId>com.google.code.gson</groupId>
-  <artifactId>gson</artifactId>
-  <version>2.8.6</version>
-</dependency>
+```bash
+npm i lodash
 ```
-
-When you push your code next, the runner will automatically download the dependency.
