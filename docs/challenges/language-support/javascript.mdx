@@ -34,38 +34,27 @@ function foo() {
 }
 
 function bar() {
-console.log('Hello from bar!');
+    console.log('Hello from bar!');
 }
 
 module.exports = { foo, bar };
-
 ````
 
 ```javascript app/main.js
 const { foo, bar } = require('./foo');
 
 function main() {
-    foo();  // prints 'Hello from foo!'
-    bar();  // prints 'Hello from bar!'
+    foo();  // Uses the foo function from foo.js
+    bar();  // Uses the bar function from foo.js
 }
 ````
 
 </CodeGroup>
 
-<Note>We use the CommonJS syntax for `import` / `export` of modules.</Note>
+<Note>We use the CommonJS syntax for importing and exporting of modules.</Note>
 
 # Adding dependencies
 
-You can add dependencies to your project using `npm`
+You can add dependencies to your project using `npm`.
 
-For example, to add the gson library, add the following to the `<dependencies>` section in your `pom.xml`:
-
-```xml
-<dependency>
-  <groupId>com.google.code.gson</groupId>
-  <artifactId>gson</artifactId>
-  <version>2.8.6</version>
-</dependency>
-```
-
-When you push your code next, the runner will automatically download the dependency.
+<Note>Instructions for adding depedencies will be documented soon.</Note>
