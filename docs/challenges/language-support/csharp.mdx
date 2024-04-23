@@ -13,7 +13,7 @@ look something like this:
 ```sh
 #!/bin/sh
 
-exec dotnet run --project . --configuration Release "$@"
+exec dotnet run --project . --configuration Release -- "$@"
 ```
 
 # File structure
