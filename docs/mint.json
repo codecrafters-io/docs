@@ -65,6 +65,7 @@
             "challenges/language-support/csharp",
             "challenges/language-support/go",
             "challenges/language-support/java",
+            "challenges/language-support/javascript",
             "challenges/language-support/kotlin",
             "challenges/language-support/python",
             "challenges/language-support/rust",
