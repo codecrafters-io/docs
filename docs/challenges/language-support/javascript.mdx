@@ -1,0 +1,60 @@
+---
+title: "Javascript"
+description: "Learn how to solve CodeCrafters challenges in Javascript"
+---
+
+# Local development
+
+To run the code for your challenge locally, you'll need `node` installed. Our test runners use Node 18 (as of April 2024).
+
+The script for your challenge (like `./your_grep.sh`) will automatically compile your code using `node` before executing it. It'll
+look something like this:
+
+```sh
+#!/bin/sh
+
+exec node app/main.js "$@"
+```
+
+# File structure
+
+- The files for your solution are placed in the `app/` directory.
+- `app/main.js` contains the `main()` function, which is what the test runner executes.
+
+# Adding more files
+
+You can add more files and directories to `app/`. The test runner will include them when compiling your code.
+
+For example, if you add a file at `app/foo.js`, you could use it like so:
+
+<CodeGroup>
+```javascript app/foo.js
+function foo() {
+    console.log('Hello from foo!');
+}
+
+function bar() {
+    console.log('Hello from bar!');
+}
+
+module.exports = { foo, bar };
+````
+
+```javascript app/main.js
+const { foo, bar } = require('./foo');
+
+function main() {
+    foo();  // Uses the foo function from foo.js
+    bar();  // Uses the bar function from foo.js
+}
+````
+
+</CodeGroup>
+
+<Note>We use the CommonJS syntax for importing and exporting of modules.</Note>
+
+# Adding dependencies
+
+You can add dependencies to your project using `npm`.
+
+<Note>Instructions for adding depedencies will be documented soon.</Note>
