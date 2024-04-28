@@ -168,6 +168,10 @@
       "destination": "/membership/turbo"
     },
     {
+      "source": "/debug",
+      "destination": "/challenges/debug-test-failures"
+    },
+    {
       "source": "/content",
       "destination": "/membership/content"
     },
