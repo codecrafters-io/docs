@@ -38,17 +38,17 @@ For example, if you added a file at `src/Foo.cpp`, you could use it like so:
 #include <iostream>
 
 void foo() {
-  std::cout << "Hello, World!";
+    std::cout << "Hello, World!";
 }
-````
+```
 
 ```cpp src/Main.cpp
 #include "Foo.cpp"
 
 int main(int argc, char* argv[]) {
-    foo()   // calls foo() defined in src/Foo.cpp
+    foo(); // calls foo() defined in src/Foo.cpp
 }
-````
+```
 
 </CodeGroup>
 
@@ -57,28 +57,24 @@ int main(int argc, char* argv[]) {
 To add a third-party dependency such as the `asio` to a C++ project, follow these steps:
 
 <Steps>
-  <Step title="Download the library">
-    Download the library files from the source. `asio` can be downloaded from [here](https://think-async.com/Asio/Download.html).
-    <Note>
-      Some libraries come built into your operating system and don't need to be
-      installed. E.g. `pthread` comes built-in to Unix systems (Linux and
-      macOS).{" "}
-    </Note>
+  <Step title="Add the dependency to vcpkg.json">
+    Run `vcpkg add port asio` to add the dependency to the `vcpkg.json` file.
   </Step>
-  <Step title="Extract the library">Extract the downloaded file to a directory in your project. For example, `codecrafters-sqlite-cpp/libs/asio-1.30.2`.</Step>
-  <Step title="Update your Include Path">
- Add the path to the Asio headers to your `CMakeLists.txt` file using the `include_directories()` function. The headers are usually inside the `include/` subdirectory of the library.
-```CMake
-include_directories(${CMAKE_SOURCE_DIR}/libs/asio-1.30.2/include)
-```
+  <Step title="Add the dependency to CMakeLists.txt">
+    To be able to use the dependency in your project, you'll need to add it to `CMakeLists.txt`.
+
+    ```CMake
+    find_package(asio CONFIG REQUIRED)
+    target_link_libraries(server PRIVATE asio asio::asio)
+    ```
   </Step>
-  <Step title="Link against the library (Only required for non-header-only libraries)">
-    Add the following line to the `CMakeLists.txt` file:
-```CMake
-target_link_libraries(server my_library)
-```
+  <Step title="Include the dependency in your code">
+    You can now include the dependency in your code.
 
-This will link the library against the build target.
+    ```cpp
+    #include <asio.hpp>
+    ```
 
+    On your next push, the test runner will automatically install the dependency before compiling your code.
   </Step>
 </Steps>

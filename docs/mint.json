@@ -62,6 +62,7 @@
           "group": "Language Support",
           "pages": [
             "challenges/language-support/introduction",
+            "challenges/language-support/cpp",
             "challenges/language-support/csharp",
             "challenges/language-support/go",
             "challenges/language-support/java",
