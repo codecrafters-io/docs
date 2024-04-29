@@ -5,7 +5,9 @@ description: "Learn how to solve CodeCrafters challenges in C++"
 
 # Local development
 
-To run the code for your challenge locally, you'll need `cmake` & `make` installed.
+To run the code for your challenge locally, you'll need [vcpkg](https://vcpkg.io/en/) & `make` installed.
+
+You'll also need the `VCPKG_ROOT` environment variable set to the path where vcpkg is installed.
 
 The script for your challenge (like `./your_sqlite3.sh`) will automatically compile your code using the rules defined in `CMakeLists.txt` before executing it. It'll
 look something like this:
@@ -14,9 +16,9 @@ look something like this:
 #!/bin/sh
 
 set -e
-cmake $(dirname $0) > /dev/null
-make > /dev/null
-exec ./server "$@"
+cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake
+cmake --build ./build
+exec ./build/server "$@"
 ```
 
 # File structure
@@ -33,14 +35,11 @@ For example, if you added a file at `src/Foo.cpp`, you could use it like so:
 
 <CodeGroup>
 ```cpp src/Foo.cpp
-#pragma once
-
 #include <iostream>
 
 void foo() {
-std::cout << "Hello, World!";
+  std::cout << "Hello, World!";
 }
-
 ````
 
 ```cpp src/Main.cpp
@@ -52,11 +51,6 @@ int main(int argc, char* argv[]) {
 ````
 
 </CodeGroup>
-
-<Note>
-  `#pragma once` is a preprocessor directive that ensures the header file is
-  only included once to prevent any duplication issues.
-</Note>
 
 # Adding dependencies
 
