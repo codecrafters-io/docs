@@ -1,0 +1,80 @@
+---
+title: "C++"
+description: "Learn how to solve CodeCrafters challenges in C++"
+---
+
+# Local development
+
+To run the code for your challenge locally, you'll need [vcpkg](https://vcpkg.io/en/) & `make` installed.
+
+You'll also need the `VCPKG_ROOT` environment variable set to the path where vcpkg is installed.
+
+The script for your challenge (like `./your_sqlite3.sh`) will automatically compile your code using the rules defined in `CMakeLists.txt` before executing it. It'll
+look something like this:
+
+```sh
+#!/bin/sh
+
+set -e
+cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake
+cmake --build ./build
+exec ./build/server "$@"
+```
+
+# File structure
+
+- The files for your solution are placed in the `src/` directory.
+- `src/Main.cpp` contains the `main` function, which is what the test runner executes.
+- `CMakeLists.txt` contains the rules for compiling your program.
+
+# Adding more files
+
+You can add more files and directories to `src/`. The test runner will include them when compiling your code.
+
+For example, if you added a file at `src/Foo.cpp`, you could use it like so:
+
+<CodeGroup>
+```cpp src/Foo.cpp
+#include <iostream>
+
+void foo() {
+    std::cout << "Hello, World!";
+}
+```
+
+```cpp src/Main.cpp
+#include "Foo.cpp"
+
+int main(int argc, char* argv[]) {
+    foo(); // calls foo() defined in src/Foo.cpp
+}
+```
+
+</CodeGroup>
+
+# Adding dependencies
+
+To add a third-party dependency such as the `asio` to a C++ project, follow these steps:
+
+<Steps>
+  <Step title="Add the dependency to vcpkg.json">
+    Run `vcpkg add port asio` to add the dependency to the `vcpkg.json` file.
+  </Step>
+  <Step title="Add the dependency to CMakeLists.txt">
+    To be able to use the dependency in your project, you'll need to add it to `CMakeLists.txt`.
+
+    ```CMake
+    find_package(asio CONFIG REQUIRED)
+    target_link_libraries(server PRIVATE asio asio::asio)
+    ```
+  </Step>
+  <Step title="Include the dependency in your code">
+    You can now include the dependency in your code.
+
+    ```cpp
+    #include <asio.hpp>
+    ```
+
+    On your next push, the test runner will automatically install the dependency before compiling your code.
+  </Step>
+</Steps>
