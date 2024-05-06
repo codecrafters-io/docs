@@ -1,0 +1,79 @@
+---
+title: "Typescript"
+description: "Learn how to solve CodeCrafters challenges in Typescript"
+---
+
+# Local development
+
+To run the code for your challenge locally, you'll need `bun` [installed](https://bun.sh/docs/installation). Our test runners use Bun v1.1 (as of May 2024).
+
+The script for your challenge (like `./your_grep.sh`) will run the code using this version of `bun`. It'll
+look something like this:
+
+```sh
+#!/bin/sh
+
+exec bun run app/main.ts "$@"
+```
+
+# File structure
+
+- The files for your solution are placed in the `app/` directory.
+- `app/main.ts` is the entrypoint for the program.
+
+# Adding more files
+
+You can add more files and directories to `app/`. The test runner will include them when compiling your code.
+
+For example, if you add a file at `app/foo.ts`, you could use it like so:
+
+<CodeGroup>
+```typescript app/foo.ts
+export function foo() {
+    console.log('Hello from foo!');
+}
+
+export function bar() {
+  console.log("Hello from bar!");
+}
+```
+
+```typescript app/main.ts
+import { foo, bar } from "./foo";
+
+function main() {
+  foo(); // Uses the foo function from foo.ts
+  bar(); // Uses the bar function from foo.ts
+}
+```
+
+</CodeGroup>
+
+Refer to the Bun [documentation](https://bun.sh/docs/runtime/modules) for additional details.
+
+<Note>
+  Remember to add the `export` keyword to functions and variables that you want
+  to export.
+</Note>
+
+# Adding dependencies
+
+You can add dependencies to your project using `bun add`.
+
+For example, to add `zod` as a dependency, run the following command:
+
+```bash
+bun add zod
+```
+
+This will add the following line to your `package.json` file:
+
+```json
+{
+  "dependencies": {
+    "zod": "^3.0.0"
+  }
+}
+```
+
+It will also update the `bun.lockb` file.
