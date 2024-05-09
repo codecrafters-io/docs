@@ -1,0 +1,62 @@
+---
+title: "Ruby"
+description: "Learn how to solve CodeCrafters challenges in Ruby"
+---
+
+<Note> **New to Ruby?** We recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/) to get up to speed.</Note>
+
+# Local development
+
+To run the code for your challenge locally, you'll need `ruby` installed. Our test runners use version `3.3` (as of May 2024).
+
+The script for your challenge (like `./spawn_redis_server.sh`) will run the code using [Bundler](https://bundler.io/), a dependency manager which comes preinstalled with Ruby. It looks something like this:
+
+```sh
+#!/bin/sh
+
+exec bundle exec ruby app/main.rb "$@"
+```
+
+# File structure
+
+- The files for your solution are placed in the `app/` directory.
+- `app/main.rb` is the entrypoint of the project.
+
+# Adding more files
+
+You can add more files and directories to `app/`. The test runner will include them when compiling your code.
+
+For example, if you added a file at `app/foo.rb`, you could use it like so:
+
+<CodeGroup>
+```Ruby app/foo.rb
+def foo
+    puts "Hello world!"
+end
+````
+
+```Ruby app/main.rb
+require_relative 'foo'
+
+foo();  # Calls foo() defined in app/foo.rb
+```
+
+</CodeGroup>
+
+# Adding dependencies
+
+`Gemfile` lists your project's dependencies. You can add dependencies by specifying the name of the gem and optionally the version.
+
+For example, To add the `nokogiri` gem, add the following line to your `Gemfile`:
+
+```Gemfile
+gem 'nokogiri'
+```
+
+Then run the following command to install it:
+
+```bash
+bundle install
+```
+
+This command will also update your `Gemfile.lock` file.
