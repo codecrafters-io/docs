@@ -84,7 +84,7 @@
     },
     {
       "group": "Troubleshooting",
-      "pages": ["troubleshooting/large-files-found"]
+      "pages": ["troubleshooting/large-files"]
     },
     {
       "group": "CLI",
