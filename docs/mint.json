@@ -83,6 +83,10 @@
       ]
     },
     {
+      "group": "Troubleshooting",
+      "pages": ["troubleshooting/large-files"]
+    },
+    {
       "group": "CLI",
       "pages": ["cli/installation", "cli/usage", "cli/update"]
     },
