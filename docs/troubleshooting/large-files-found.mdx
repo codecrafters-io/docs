@@ -1,0 +1,41 @@
+---
+title: "Large files found"
+description: "Instructions on resolving error related to large files"
+---
+
+When pushing your changes, you might see a message indicating that some files exceed the 1MB size limit:
+
+<Frame>
+  <img src="../img/large-file-error.png"></img>
+</Frame>
+
+If you encounter an error like this, it's likely due to inadvertently committing files that are too large or not meant to be tracked (e.g., binaries or `node_modules/`).
+
+
+## Instructions
+Follow these steps to remove the large files:
+
+<Steps>
+  <Step title="Remove the files">
+    Run the following command:
+    ```bash
+    git rm paths_to_large_files
+    ```
+    This command removes the large files from your Git repository.
+
+    For example to delete the `./server` and `./release/target` binaries shown in the screenshot above, run the following command:
+
+    ```bash
+    git rm --cached server release/target
+    ```
+
+  </Step>
+  <Step title="Commit the changes">
+    After removing all the large files from the GIt repository. commit the changes:
+
+    ```bash
+    git commit -m "Remove large files"
+    ```
+
+  </Step>
+</Steps>
