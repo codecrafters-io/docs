@@ -56,6 +56,10 @@
       ]
     },
     {
+      "group": "Features",
+      "pages": ["features/publish-to-github"]
+    },
+    {
       "group": "Challenges",
       "pages": [
         {
