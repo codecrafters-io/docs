@@ -13,7 +13,7 @@ If you encounter an error like this, it's likely due to inadvertently committing
 
 Depending on when these large files entered your Git history, there are two ways to resolve this.
 
-## Solution 1
+## Solution 1: Amend last commit (Try this first)
 
 <Steps>
   <Step title="Stage the large files for deletion">
@@ -38,11 +38,17 @@ Depending on when these large files entered your Git history, there are two ways
     This will amend the previous commit with the changes.
 
   </Step>
+  <Step title="Push the code">
+  Finally, push your code:
+  ```bash
+  git push origin master
+  ```
+  </Step>
 </Steps>
 
 If Solution 1 doesn't work, it means the large files are present in an older commit and will require some extra work. Follow the instructions in Solution 2 below.
 
-## Solution 2
+## Solution 2: Amend historical commits
 
 <Steps>
   <Step title="Install `git repo-filter`">
@@ -87,3 +93,9 @@ git push origin --force --all
 </Step>
 
 </Steps>
+
+<Note>
+  If you're still running into issues after trying the the two steps above,
+  please reach out to us at
+  [hello@codecrafters.io](mailto:hello@codecrafters.io) and we'll help out!{" "}
+</Note>
