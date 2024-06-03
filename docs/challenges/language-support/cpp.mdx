@@ -31,26 +31,36 @@ exec ./build/server "$@"
 
 You can add more files and directories to `src/`. The test runner will include them when compiling your code.
 
-For example, if you added a file at `src/Foo.cpp`, you could use it like so:
+For example, if you want to create a function `foo()` in another file, you need to:
+1. Add a header file `Foo.hpp` and define `foo()` there.
+2. Add a cpp file `Foo.cpp` and implement `foo()` there.
 
 <CodeGroup>
+```cpp src/Foo.hpp
+// Function definitions go here
+#pragma once
+
+void foo();
+```
+
 ```cpp src/Foo.cpp
+// Implementations of functions defined in src/Foo.hpp go here
 #include <iostream>
 
 void foo() {
-    std::cout << "Hello, World!";
+    std::cout << "Hello from foo!";
 }
 ```
 
 ```cpp src/Main.cpp
-#include "Foo.cpp"
+#include "Foo.hpp"
 
 int main(int argc, char* argv[]) {
-    foo(); // calls foo() defined in src/Foo.cpp
+    foo(); // calls foo() defined in src/Foo.hpp
 }
 ```
-
 </CodeGroup>
+<Note>The `#pragma once` directive in `src/Foo.hpp` ensures the header file is included only once during compilation.</Note>
 
 # Adding dependencies
 
