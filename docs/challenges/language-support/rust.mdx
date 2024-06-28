@@ -34,8 +34,9 @@ exec cargo run \
 
 You can add more files and directories to the `src` directory. The test runner will include them when compiling your code.
 
-For example, if you added a file at `src/foo.rs`, you could use it like so:
+Rust uses [modules](https://doc.rust-lang.org/rust-by-example/mod.html) to organize code. For example, to define the `foo` module, create a file at `src/foo.rs`.
 
+You can use functions and variables from `foo.rs` in your main code like so:
 <CodeGroup>
 
 ```Rust src/foo.rs
@@ -48,7 +49,7 @@ pub fn foo() {
 mod foo;
 
 fn main() {
-  foo:foo(); // Calls the foo function from foo.rs
+  foo::foo(); // Calls the foo function from foo.rs
 }
 ```
 
@@ -58,6 +59,8 @@ fn main() {
   Remember to make `foo()` accessible to `main.rs` by adding the `pub`
   identifier
 </Note>
+
+Refer to the Rust [documentation](https://doc.rust-lang.org/book/ch07-05-separating-modules-into-different-files.html) for more details.
 
 # Adding dependencies
 
