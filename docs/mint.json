@@ -79,6 +79,7 @@
             "challenges/language-support/zig"
           ]
         },
+        "challenges/program-interface",
         "challenges/debug-test-failures",
         "challenges/install-additional-dependencies",
         "challenges/reattempt-challenge",
