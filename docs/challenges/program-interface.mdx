@@ -1,4 +1,45 @@
 ---
 title: "Program Interface"
-description: "Learn more about how the CodeCrafters program interface works"
+description: "Learn how the CodeCrafters program interface works and how to configure your project"
 ---
+
+When you push code to CodeCrafters, we run three steps:
+
+1. **Build**: Prepare your project environment
+2. **Compile**: Transform your source code into executable format (if applicable)
+3. **Run**: Execute your program for testing
+
+This document explains how to customize the compilation (Step 2) and execution (Step 3) of your code, both locally and on CodeCrafters servers.
+
+## Configuration Files
+
+You can modify specific files in your project to control how your code is processed:
+
+| File | Purpose | Scope |
+|------|---------|-------|
+| `your_program.sh` | Local compilation and execution | Local only |
+| `.codecrafters/compile.sh` | Remote compilation | CodeCrafters servers |
+| `.codecrafters/run.sh` | Remote execution | CodeCrafters servers |
+
+## Local Configuration
+
+### `your_program.sh`
+
+This script handles both the compilation (if necessary) and execution of your program in your local environment.
+
+Modify this file to change your program runs locally.
+
+Changes to this file DO NOT affect how your program is run on CodeCrafteers servers
+
+## Remote Configuration
+
+### `.codecrafters/compile.sh`
+
+This script is used to compile your program on CodeCrafters servers.
+
+<Note>This file will be empty for interpreted languages like (e.g., Python, Ruby) </Note>
+
+### `.codecrafters/run.sh`
+
+This script is used to execute your program on CodeCrafters servers.
+
