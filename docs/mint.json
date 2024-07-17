@@ -52,6 +52,7 @@
         "membership/content",
         "membership/turbo",
         "membership/anonymous-mode",
+        "membership/code-examples",
         "membership/perks"
       ]
     },
