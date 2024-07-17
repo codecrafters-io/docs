@@ -52,6 +52,7 @@
         "membership/content",
         "membership/turbo",
         "membership/anonymous-mode",
+        "membership/code-examples",
         "membership/perks"
       ]
     },
@@ -89,7 +90,10 @@
     },
     {
       "group": "Troubleshooting",
-      "pages": ["troubleshooting/large-files", "troubleshooting/fix-clone-errors"]
+      "pages": [
+        "troubleshooting/large-files",
+        "troubleshooting/fix-clone-errors"
+      ]
     },
     {
       "group": "CLI",
@@ -178,6 +182,10 @@
     {
       "source": "/turbo",
       "destination": "/membership/turbo"
+    },
+    {
+      "source": "/code-examples",
+      "destination": "/membership/code-examples"
     },
     {
       "source": "/debug",
