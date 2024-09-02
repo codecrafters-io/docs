@@ -103,7 +103,10 @@
     },
     {
       "group": "Billing",
-      "pages": ["billing/get-an-invoice"]
+      "pages": [
+        "billing/get-an-invoice",
+        "billing/get-a-local-currency-invoice"
+      ]
     },
     {
       "group": "Community",
