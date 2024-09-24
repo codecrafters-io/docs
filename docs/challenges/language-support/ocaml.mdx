@@ -1,0 +1,83 @@
+---
+title: "OCaml"
+description: "Learn how to solve CodeCrafters challenges in OCaml"
+---
+
+<Note>
+  **New to OCaml?** We recommend checking out [A Tour of
+  OCaml](https://ocaml.org/docs/tour-of-ocaml) to get up to speed.
+</Note>
+
+# Local development
+
+To run the code for your challenge locally, you'll need `opam` and `dune` installed. Our test runners use Dune v3.16 (as of September 2024).
+
+The script for your challenge (`./your_program.sh`) will run the code using these tools. It might look something like this:
+
+```sh
+#!/bin/sh
+
+dune build --build-dir /tmp/redis
+exec /tmp/redis/default/main.exe "$@"
+```
+
+# File structure
+
+- The files for your solution are placed in the `src/` directory.
+- `src/main.ml` is the entry point for your OCaml program.
+
+# Adding more files
+
+You can organize your code by adding more `.ml` and `.mli` files in the `src/` directory. The test runner will include them when building and running your code.
+
+For example, if you add a file at `src/foo.ml`, you can reference it in `main.ml` like this:
+
+<CodeGroup>
+
+```ocaml src/foo.ml
+let bar () = Printf.printf "Hello World!\n"
+```
+
+```ocaml src/main.ml
+let () = Foo.bar () (* Calls the bar function from foo.ml *)
+```
+
+</CodeGroup>
+
+Make sure to update your `dune` file if you add new modules:
+
+```dune
+(executable
+ (name main)
+ (modules main foo))
+```
+
+Refer to the [Dune documentation](https://dune.readthedocs.io/) for more details on building OCaml projects.
+
+<Note>
+  Remember to add the functions you want to expose in the corresponding `.mli`
+  interface files, if needed.
+</Note>
+
+# Adding dependencies
+
+You can add dependencies by editing the `dune-project` file.
+
+For example, to add `base` as a dependency, you would modify `dune-project` like so:
+
+```
+(package
+ (depends base))
+```
+
+You'll also need to update your `dune` file to include the dependency:
+
+```dune
+(executable
+ (name main)
+ (libraries base))
+```
+
+This will allow you to use the `base` library in your code.
+
+For more details, check the [OCaml documentation](https://ocaml.org/docs/managing-dependencies#adding-a-dependency-to-your-dune-project-file).
