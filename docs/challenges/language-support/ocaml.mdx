@@ -46,42 +46,71 @@ let () = Foo.bar () (* Calls the bar function from foo.ml *)
 
 # Adding dependencies
 
-You can add dependencies by editing the `.opam` file and the `dune` file.
+<Steps>
+  <Step title="Local Environment">
+    You can add dependencies by running `opam install` and editing the `dune` file.
 
-For example, to add the `yojson` json library as a dependency, you would modify `codecrafters_redis.opam` like so:
+    For example, to add the `yojson` json library, first run the following command:
 
-```diff
-depends: [
-   "dune" {>= "3.16"}
-   "odoc" {with-doc}
-+  "yojson"
-]
-```
+    ```bash
+    opam install yojson
+    ```
 
-You'll also need to update the `dune` file to include the dependency:
+    Then update the `dune` file to include the dependency:
 
-```diff
-(executable
-  (name main)
-- (libraries unix))
-+ (libraries unix yojson))
-```
+    ```diff
+    (executable
+      (name main)
+    - (libraries unix))
+    + (libraries unix yojson))
+    ```
+  </Step>
+  
+  <Step title="Remote Testing">
+    The test runner needs to know which dependencies to install for your code.
 
-For more details, check the OCaml documentation on [Adding a Dependency](https://ocaml.org/docs/managing-dependencies#adding-a-dependency-to-your-opam-file).
+    Before testing your code remotely, you should edit the `dune-project` file:
 
-An example of how to use the `yojson` library:
+    ```diff
+    (generate_opam_files true)
+    
+    (package
+       (name codecrafters_redis)
+    +  (depends yojson)
+       (version 0.1))
+    ```
 
-```ocaml
-open Yojson.Basic
+    Run this command to update `codecrafters_redis.opam`:
 
-let () =
-  {| { "challenge": "Build your own Redis", "language": "OCaml" } |} 
-  |> from_string
-  |> Util.member "language" 
-  |> Util.to_string 
-  |> print_endline
+    ```
+    dune build
+    ```
 
-(* Print out "OCaml" *)
-```
+    And remember to commit the modified files:
+    
+    - `dune`
+    - `dune-project`
+    - `codecrafters_redis.opam`
 
-For more OCaml libraries, you can browse the [opam package repository](https://opam.ocaml.org/packages/).
+    <Info>For more details, check the OCaml documentation on [Adding a Dependency](https://ocaml.org/docs/managing-dependencies#adding-a-dependency-to-your-dune-project-file).</Info>
+  </Step>
+
+  <Step title="Example">
+    Here's an example of how to use the `yojson` library:
+
+    ```ocaml
+    open Yojson.Basic
+
+    let () =
+      {| { "challenge": "Build your own Redis", "language": "OCaml" } |} 
+      |> from_string
+      |> Util.member "language" 
+      |> Util.to_string 
+      |> print_endline
+
+    (* Print out "OCaml" *)
+    ```
+
+    <Info>For more OCaml libraries, you can browse the [opam package repository](https://opam.ocaml.org/packages/).</Info>
+  </Step>
+</Steps>
