@@ -12,7 +12,7 @@ description: "Learn how to solve CodeCrafters challenges in OCaml"
 
 To run the code for your challenge locally, you'll need [opam](https://opam.ocaml.org/) and [dune](https://dune.build/install) installed. Our test runners use Dune v3.16 (as of September 2024).
 
-The script for your challenge (`./your_program.sh`) will run your code using these tools. It'll look something like this:
+The script for your challenge (`./your_program.sh`) will run your code using these tools. It will look something like this:
 
 ```sh
 #!/bin/sh
@@ -47,16 +47,21 @@ let () = Foo.bar () (* Calls the bar function from foo.ml *)
 # Adding dependencies
 
 <Steps>
-  <Step title="Local Environment">
-    You can add dependencies by running `opam install` and editing the `dune` file.
+  <Step title="Specify dependencies">
+    You need to specify dependencies in both the `dune-project` and `dune` files.
 
-    For example, to add the `yojson` json library, first run the following command:
+    For example, to add the `yojson` library for handling JSON, first update `dune-project` as follows:
 
-    ```bash
-    opam install yojson
+    ```diff
+    (generate_opam_files true)
+
+    (package
+       (name codecrafters_redis)
+    +  (depends yojson)
+       (version 0.1))
     ```
 
-    Then update the `dune` file to include the dependency:
+    Then, update the `dune` file to include `yojson` as a library:
 
     ```diff
     (executable
@@ -64,53 +69,47 @@ let () = Foo.bar () (* Calls the bar function from foo.ml *)
     - (libraries unix))
     + (libraries unix yojson))
     ```
+
+    <Info>For more details, check the OCaml documentation on [Adding a Dependency](https://ocaml.org/docs/managing-dependencies#adding-a-dependency-to-your-dune-project-file).</Info>
+
   </Step>
   
-  <Step title="Remote Testing">
-    The test runner needs to know which dependencies to install for your code.
+  <Step title="Install dependencies">
+    You need to regenerate the `codecrafters_redis.opam` file from `dune-project` before installing dependencies.
 
-    Before testing your code remotely, you should edit the `dune-project` file:
+    First, run this command to update `codecrafters_redis.opam`:
 
-    ```diff
-    (generate_opam_files true)
-    
-    (package
-       (name codecrafters_redis)
-    +  (depends yojson)
-       (version 0.1))
-    ```
-
-    Run this command to update `codecrafters_redis.opam`:
-
-    ```
+    ```bash
     dune build
     ```
 
-    And remember to commit the modified files:
-    
-    - `dune`
-    - `dune-project`
-    - `codecrafters_redis.opam`
+    <Note>It's expected to encounter an error when running `dune build`. Continue to the next step.</Note>
 
-    <Info>For more details, check the OCaml documentation on [Adding a Dependency](https://ocaml.org/docs/managing-dependencies#adding-a-dependency-to-your-dune-project-file).</Info>
+    Then, install the dependencies from `codecrafters_redis.opam`:
+
+    ```bash
+    opam install . --deps-only
+    ```
+
   </Step>
 
-  <Step title="Example">
+  <Step title="Use dependencies">
     Here's an example of how to use the `yojson` library:
 
     ```ocaml
     open Yojson.Basic
 
     let () =
-      {| { "challenge": "Build your own Redis", "language": "OCaml" } |} 
+      {| { "challenge": "Build your own Redis", "language": "OCaml" } |}
       |> from_string
-      |> Util.member "language" 
-      |> Util.to_string 
+      |> Util.member "language"
+      |> Util.to_string
       |> print_endline
 
-    (* Print out "OCaml" *)
+    (* This will print "OCaml" *)
     ```
 
     <Info>For more OCaml libraries, you can browse the [opam package repository](https://opam.ocaml.org/packages/).</Info>
+
   </Step>
 </Steps>
