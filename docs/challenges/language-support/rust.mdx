@@ -39,17 +39,17 @@ Rust uses [modules](https://doc.rust-lang.org/rust-by-example/mod.html) to organ
 You can use functions and variables from `foo.rs` in your main code like so:
 <CodeGroup>
 
-```Rust src/foo.rs
-pub fn foo() {
-    println!("Hello World!");
-}
-```
-
 ```Rust src/main.rs
 mod foo;
 
 fn main() {
   foo::foo(); // Calls the foo function from foo.rs
+}
+```
+
+```Rust src/foo.rs
+pub fn foo() {
+    println!("Hello World!");
 }
 ```
 

@@ -28,15 +28,6 @@ You can add more files and directories to `app/`. The test runner will include t
 For example, if you add a file at `app/foo.ts`, you could use it like so:
 
 <CodeGroup>
-```typescript app/foo.ts
-export function foo() {
-    console.log('Hello from foo!');
-}
-
-export function bar() {
-  console.log("Hello from bar!");
-}
-```
 
 ```typescript app/main.ts
 import { foo, bar } from "./foo";
@@ -44,6 +35,16 @@ import { foo, bar } from "./foo";
 function main() {
   foo(); // Uses the foo function from foo.ts
   bar(); // Uses the bar function from foo.ts
+}
+```
+
+```typescript app/foo.ts
+export function foo() {
+    console.log('Hello from foo!');
+}
+
+export function bar() {
+  console.log("Hello from bar!");
 }
 ```
 

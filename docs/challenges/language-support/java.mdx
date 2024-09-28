@@ -31,18 +31,19 @@ You can add more files and directories to `src/main/java`. The test runner will 
 For example, if you added a file at `src/main/java/Foo.java`, you could use it like so:
 
 <CodeGroup>
-```java src/main/java/Foo.java
-public class Foo {
-    public static void foo() {
-        System.out.println("Hello world!");
-    }
-}
-```
 
 ```java src/main/java/Main.java
 public class Main {
     public static void main(String[] args) {
         Foo.foo();  // calls the method foo() from Foo class in Foo.java
+    }
+}
+```
+
+```java src/main/java/Foo.java
+public class Foo {
+    public static void foo() {
+        System.out.println("Hello world!");
     }
 }
 ```

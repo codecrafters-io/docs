@@ -25,13 +25,6 @@ You can add more files and directories to `app/`. The test runner will include t
 For example, if you added a file at `app/foo.go`, you could use it like so:
 
 <CodeGroup>
-```go app/foo.go
-package main
-
-fun foo() {
-    println("Hello world!")
-}
-```
 
 ```go app/main.go
 package main
@@ -40,6 +33,15 @@ fun main() {
     foo() // Uses the foo function from foo.go
 }
 ```
+
+```go app/foo.go
+package main
+
+fun foo() {
+    println("Hello world!")
+}
+```
+
 </CodeGroup>
 
 All files in `app/` must have a `package main` declaration at the top of the file. If you want to extract files into a different package,

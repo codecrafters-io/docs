@@ -26,15 +26,16 @@ You can add more files and directories to `src/main/kotlin`. The test runner wil
 For example, if you added a file at `src/main/kotlin/Foo.kt`, you could use it like so:
 
 <CodeGroup>
-```kotlin src/main/kotlin/Foo.kt
-fun foo() {
-    println("Hello world!")
-}
-```
 
 ```kotlin src/main/kotlin/Main.kt
 fun main() {
     foo() // Uses the foo function from Foo.kt
+}
+```
+
+```kotlin src/main/kotlin/Foo.kt
+fun foo() {
+    println("Hello world!")
 }
 ```
 
