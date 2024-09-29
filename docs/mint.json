@@ -74,6 +74,7 @@
             "challenges/language-support/java",
             "challenges/language-support/javascript",
             "challenges/language-support/kotlin",
+            "challenges/language-support/ocaml",
             "challenges/language-support/python",
             "challenges/language-support/ruby",
             "challenges/language-support/rust",
