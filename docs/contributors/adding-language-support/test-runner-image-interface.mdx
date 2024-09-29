@@ -20,16 +20,18 @@ The test runner script roughly follows this flow:
 - Copies any files in `/app-cached` to `$CODECRAFTERS_SUBMISSION_DIR` if present.
 - Sets `CODECRAFTERS_SUBMISSION_DIR` to `/app`
   - This value is subject to change in the future, hence the use of an environment variable.
-- Runs `/codecrafters-precompile.sh` if it exists.
+- Runs `/app/.codecrafters/compile.sh` if it exists.
   - Logs from this step are prefixed with `[compile]`.
+  - This script only runs once even if we're testing multiple stages.
 - Sets `CODECRAFTERS_TEST_CASES_JSON` based on the current test run.
 - Runs the tester program ([example](https://github.com/codecrafters-io/redis-tester))
   - Logs from this step are streamed directly with no prefix, the tester program is expected to add prefixes like "[stage-1]", "[stage-2]" etc. to its logs.
+  - The user's program is assumed to be present at `/app/.codecrafters/run.sh`.
   - The exit code of this step (0 or 1) is used to determine if the test run passed or failed.
 
 ## Performance
 
-We use three different techniques to ensure user's code is built & run as fast as possible. Depending on the language, you might or might not need to use all of these techniques.
+We use three different techniques to ensure user's code is built & run as fast as possible. Depending on the language, you may not need to use all of these techniques.
 
 ### 1. Dockerfile Caching
 
@@ -52,7 +54,7 @@ Any Dockerfile steps that emit output will be printed to the user's test run log
 
 ### 2. Compilation
 
-If `/codecrafters-precompile.sh` is present in the image, it will be run once before invoking the tester.
+If the user's repo contains `/.codecrafters/compile.sh`, it will be run once before invoking the tester.
 
 This is useful with compiled languages like Rust, where the first compilation can take a long time, but running the compiled binary is fast.
 
@@ -62,9 +64,7 @@ Logs from this script will be printed to the user's test run logs with the `[com
   <img className="w-full" src="/img/contributors/compile-logs.png" />
 </Frame>
 
-**Notes**:
-
-- The `/codecrafters-precompile.sh` script can choose to edit the executable script (like `./your_bittorrent.sh`) to remove any compilation steps.
+More on this in in [Test Runner Interface](/challenges/program-interface).
 
 ### 3. Cached Files
 
