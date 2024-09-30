@@ -34,17 +34,19 @@ For example, if you add a file at `src/foo.ml`, you can reference it in `main.ml
 
 <CodeGroup>
 
-```ocaml src/foo.ml
-let bar () = Printf.printf "Hello World!\n"
-```
-
 ```ocaml src/main.ml
 let () = Foo.bar () (* Calls the bar function from foo.ml *)
+```
+
+```ocaml src/foo.ml
+let bar () = Printf.printf "Hello World!\n"
 ```
 
 </CodeGroup>
 
 # Adding dependencies
+
+If you're looking for OCaml libraries, you can browse the [opam package repository](https://opam.ocaml.org/packages/).
 
 <Steps>
   <Step title="Specify dependencies">
@@ -75,17 +77,17 @@ let () = Foo.bar () (* Calls the bar function from foo.ml *)
   </Step>
   
   <Step title="Install dependencies">
-    You need to regenerate the `codecrafters_redis.opam` file from `dune-project` before installing dependencies.
+    You need to regenerate the `.opam` file from `dune-project` before installing dependencies.
 
-    First, run this command to update `codecrafters_redis.opam`:
+    First, run this command to update the `.opam` file:
 
     ```bash
     dune build
     ```
 
-    <Note>It's expected to encounter an error when running `dune build`. Continue to the next step.</Note>
+    <Note>If you’ve already used the library in an `.ml` file, `dune build` will exit with an error. This is okay — it’ll still update the `.opam` file (required for the next step).</Note>
 
-    Then, install the dependencies from `codecrafters_redis.opam`:
+    Then, run this command to install the dependencies:
 
     ```bash
     opam install . --deps-only
@@ -108,8 +110,6 @@ let () = Foo.bar () (* Calls the bar function from foo.ml *)
 
     (* This will print "OCaml" *)
     ```
-
-    <Info>For more OCaml libraries, you can browse the [opam package repository](https://opam.ocaml.org/packages/).</Info>
 
   </Step>
 </Steps>

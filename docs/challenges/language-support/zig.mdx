@@ -36,19 +36,19 @@ For example, if you added a file at `app/foo.zig`, you could use it like so:
 
 <CodeGroup>
 
-```zig app/foo.zig
-const std = @import("std");
-
-pub fn bar() void {
-  std.debug.print("Hello World!", .{});
-}
-```
-
 ```zig app/main.zig
 const foo = @import("foo.zig");
 
 pub fn main() void {
   foo.bar() // Uses the bar function from foo.zig
+}
+```
+
+```zig app/foo.zig
+const std = @import("std");
+
+pub fn bar() void {
+  std.debug.print("Hello World!", .{});
 }
 ```
 
