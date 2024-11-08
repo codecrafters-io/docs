@@ -1,57 +1,54 @@
 ---
 title: "Starter Code"
-description: "Learn about how to implement starter code for a language"
+description: "Learn about how to create starter code for a language"
 ---
 
 Starter code is the code that we provide to users when they start a challenge. It's the code that they'll be building on top of.
 
 [Here's an example](https://github.com/codecrafters-io/build-your-own-redis/tree/main/compiled_starters/python).
 
-## 1. Copy from Language Template
-
-Use [course-sdk](https://github.com/codecrafters-io/course-sdk) to copy the starter code skeleton and Dockerfile from the [language-templates](https://github.com/codecrafters-io/language-templates) repository.
+## 1. Run `course-sdk add-language <language>`
 
 <Steps>
 <Step title="Clone build-your-own-<challenge>">
-  For example, if you’re adding support for the Kafka challenge, clone the [build-your-own-kafka](https://github.com/codecrafters-io/build-your-own-kafka) repository.
+  For instance, if you’re adding support for the Kafka challenge, clone the [build-your-own-kafka](https://github.com/codecrafters-io/build-your-own-kafka) repository.
 
 </Step>
 
 <Step title="Run course-sdk add-language <language>">
-a. Verify that the language you want to add is available in the [languages](https://github.com/codecrafters-io/language-templates/tree/main/languages) folder in the language-templates repository.
+a. Install [course-sdk](https://github.com/codecrafters-io/course-sdk) if it’s not already installed.
 
-b. Install [course-sdk](https://github.com/codecrafters-io/course-sdk) if it’s not already installed.
-
-c. In the cloned challenge repository, copy the starter code skeleton and Dockerfile with this command:
+b. In the cloned challenge repository, run the following command:
 
 ```bash
 course-sdk add-language <language>
 ```
 
+<Info>
+  Check available languages
+  [here](https://github.com/codecrafters-io/language-templates/tree/main/languages).
+</Info>
+
 </Step>
 </Steps>
 
-## 2. Implement the starter code
+## 2. Edit starter code
 
-<Steps>
+The starter code will be copied to `starter_templates/<language>`.
 
-<Step title="Pass the first stage">
-  Extend the copied starter code skeleton to pass the first stage of the
-  challenge.
-</Step>
+Suppose you're adding C support, open and edit `starter_templates/c/code/src/main.c`:
 
-<Step title="Comment out a key step">
-  Comment out a key step in the code, so that it doesn't pass the first stage initially. 
-  
-  When uncommented, this code should then be able to pass the first stage.
-</Step>
-</Steps>
+<Frame>
+  <img className="w-full" src="/img/contributors/starter-code-skeleton.jpg" />
+</Frame>
 
-## 3. Ensure CI tests pass
+Make necessary edits so the code can pass the first stage of the challenge.
+
+## 3. Run `course-sdk test <language>`
 
 We have comprehensive CI tests in place to ensure that the starter code and Dockerfile for each language are valid.
 
-In the cloned challenge repository, run the tests locally with this command:
+In the cloned challenge repository, run the following command:
 
 ```bash
 course-sdk test <language>
