@@ -133,7 +133,6 @@
       "pages": [
         "contributors/adding-language-support/introduction",
         "contributors/adding-language-support/starter-code",
-        "contributors/adding-language-support/dockerfiles",
         "contributors/adding-language-support/test-runner-image-interface"
       ]
     },
