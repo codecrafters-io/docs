@@ -21,7 +21,7 @@ You'll start by strengthening your understanding of fundamental programming conc
 
 If you're not new to programming, but want to catch up on the basics of a new language, 
 its official resources are generally a good place to start. We do want to make two recommendations however:
-* For Golang, we recommend the [Learn Golang](https://www.boot.dev/courses/learn-golang) module by boot.dev. 
+* For Golang, we recommend [boot.dev's module](https://www.boot.dev/courses/learn-golang). 
 Our [perks page](https://codecrafters.io/perks) has a deal!
 * For TypeScript, we recommend [Execute Program](https://www.executeprogram.com/courses/typescript-basics). Our [perks page](https://codecrafters.io/perks) has a deal!
 * For most other languages, [Exercism](https://exercism.org/) offers a language learning track comprising practice challenges.
