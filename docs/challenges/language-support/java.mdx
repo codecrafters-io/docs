@@ -3,7 +3,7 @@ title: "Java"
 description: "Learn how to solve CodeCrafters challenges in Java"
 ---
 
-# Local development
+## Local development
 
 To run the code for your challenge locally, you'll need `java` & `mvn` installed. Our test runners use Java 21 (as of November 2023).
 
@@ -19,12 +19,12 @@ exec java -jar /tmp/codecrafters-redis-target/java_redis.jar "$@"
 
 When running tests on our servers, the `mvn` command will only be run once and then commented out. This ensures that each test only runs the `java -jar ...` line.
 
-# File structure
+## File structure
 
 - The files for your solution are placed in the `src/main/java` directory.
 - `src/main/java/Main.java` contains the `main` function, which is what the test runner executes.
 
-# Adding more files
+## Adding more files
 
 You can add more files and directories to `src/main/java`. The test runner will include them when compiling your code.
 
@@ -83,7 +83,7 @@ public class Main {
   Use an IDE like IntelliJ IDEA which will automatically offer to move your file
   to a directory matching the package name.
 </Tip>
-# Adding dependencies
+## Adding dependencies
 
 You can add dependencies to your project by adding them to your `pom.xml` file.
 

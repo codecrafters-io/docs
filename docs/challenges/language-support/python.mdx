@@ -8,7 +8,7 @@ description: "Learn how to solve CodeCrafters challenges in Python"
   Python](https://automatetheboringstuff.com/) to get up to speed.
 </Note>
 
-# Local development
+## Local development
 
 To run the code for your challenge locally, you'll need `python3` installed. Our test runners use version `3.12` (as of April 2024).
 
@@ -20,12 +20,12 @@ The script for your challenge (like `./spawn_redis_server.sh`) will run your cod
 exec python3 -m app.main "$@"
 ```
 
-# File structure
+## File structure
 
 - The files for your solution are placed in the `app/` directory.
 - `app/main.py` contains the `main` function, which is what the test runner executes.
 
-# Adding more files
+## Adding more files
 
 You can add more files and directories to `app/`. The test runner will include them when compiling your code.
 
@@ -48,7 +48,7 @@ def foo():
 
 </CodeGroup>
 
-# Adding dependencies
+## Adding dependencies
 
 <Note>
   Not all challenges support managing dependencies via Pipenv at the moment.
@@ -78,4 +78,4 @@ This will create a virtual environment (if it doesn't exist) and add the followi
 requests = "*"
 ```
 
-It’ll also make changes to your `Pipfile.lock`.
+It'll also make changes to your `Pipfile.lock`.

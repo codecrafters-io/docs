@@ -8,7 +8,7 @@ description: "Learn how to solve CodeCrafters challenges in Zig"
   [ziglang.org/learn](https://ziglang.org/learn/) to get up to speed.
 </Note>
 
-# Local development
+## Local development
 
 To run the code for your challenge locally, you'll need `zig` installed. Our test runners use version `0.11` (as of November 2023).
 
@@ -23,12 +23,12 @@ zig build-exe ./app/main.zig
 exec ./main "$@"
 ```
 
-# File structure
+## File structure
 
 - The files for your solution are placed in the `app` directory.
 - `app/main.zig` contains the `main` function, which is what the test runner executes.
 
-# Adding more files
+## Adding more files
 
 You can add more files and directories to the `app` directory. The test runner will include them when compiling your code.
 
@@ -76,7 +76,7 @@ pub fn main() void {
 
 </CodeGroup>
 
-# Adding dependencies
+## Adding dependencies
 
 We don't support the package manager added in Zig 0.11 yet. For now, you'll need to copy in any dependencies you need into your project
 and import them using `@import`.

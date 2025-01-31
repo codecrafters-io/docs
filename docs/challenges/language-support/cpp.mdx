@@ -3,7 +3,7 @@ title: "C++"
 description: "Learn how to solve CodeCrafters challenges in C++"
 ---
 
-# Local development
+## Local development
 
 To run the code for your challenge locally, you'll need [vcpkg](https://vcpkg.io/en/) & `make` installed.
 
@@ -21,13 +21,13 @@ cmake --build ./build
 exec ./build/server "$@"
 ```
 
-# File structure
+## File structure
 
 - The files for your solution are placed in the `src/` directory.
 - `src/Main.cpp` contains the `main` function, which is what the test runner executes.
 - `CMakeLists.txt` contains the rules for compiling your program.
 
-# Adding more files
+## Adding more files
 
 You can add more files and directories to `src/`. The test runner will include them when compiling your code.
 
@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
 </CodeGroup>
 <Note>The `#pragma once` directive in `src/Foo.hpp` ensures the header file is included only once during compilation.</Note>
 
-# Adding dependencies
+## Adding dependencies
 
 To add a third-party dependency such as the `asio` to a C++ project, follow these steps:
 

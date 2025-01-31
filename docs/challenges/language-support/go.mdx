@@ -7,18 +7,18 @@ description: "Learn how to solve CodeCrafters challenges in Go"
   **New to Go?** We recommend checking out [Go by Example](https://gobyexample.com/) to get up to speed.
 </Note>
 
-# Local development
+## Local development
 
 To run the code for your challenge locally, you'll need `go` installed. Our test runners use `go` version `1.19` (as of November 2023).
 
 The script for your challenge (like `./your_bittorrent.sh`) will automatically compile your code using `go build` before executing it.
 
-# File structure
+## File structure
 
 - The files for your solution are placed in the `app/` directory.
 - `app/main.go` contains the `main` function, which is what the test runner executes.
 
-# Adding more files
+## Adding more files
 
 You can add more files and directories to `app/`. The test runner will include them when compiling your code.
 
@@ -72,7 +72,7 @@ fun main() {
 Note that you'll need to update the import statement in `main.go` to use the new package name (Example: `github.com/codecrafters-io/dns-server-starter-go/app/bar`). You'll
 find the first part of the package name in `go.mod`.
 
-# Adding dependencies
+## Adding dependencies
 
 You can add dependencies to your project by adding them to your `go.mod` file. You can use the `go get` command for this.
 

@@ -8,7 +8,7 @@ description: "Learn how to solve CodeCrafters challenges in OCaml"
   OCaml](https://ocaml.org/docs/tour-of-ocaml) to get up to speed.
 </Note>
 
-# Local development
+## Local development
 
 To run the code for your challenge locally, you'll need [opam](https://opam.ocaml.org/) and [dune](https://dune.build/install) installed. Our test runners use Dune v3.16 (as of September 2024).
 
@@ -21,12 +21,12 @@ dune build --build-dir /tmp/redis
 exec /tmp/redis/default/main.exe "$@"
 ```
 
-# File structure
+## File structure
 
 - The files for your solution are placed in the `src/` directory.
 - `src/main.ml` is the entry point for your OCaml program.
 
-# Adding more files
+## Adding more files
 
 You can organize your code by adding more `.ml` files in the `src/` directory. The test runner will include them when building and running your code.
 
@@ -44,7 +44,7 @@ let bar () = Printf.printf "Hello World!\n"
 
 </CodeGroup>
 
-# Adding dependencies
+## Adding dependencies
 
 If you're looking for OCaml libraries, you can browse the [opam package repository](https://opam.ocaml.org/packages/).
 
@@ -75,7 +75,7 @@ If you're looking for OCaml libraries, you can browse the [opam package reposito
     <Info>For more details, check the OCaml documentation on [Adding a Dependency](https://ocaml.org/docs/managing-dependencies#adding-a-dependency-to-your-dune-project-file).</Info>
 
   </Step>
-  
+
   <Step title="Install dependencies">
     You need to regenerate the `.opam` file from `dune-project` before installing dependencies.
 
@@ -85,7 +85,7 @@ If you're looking for OCaml libraries, you can browse the [opam package reposito
     dune build
     ```
 
-    <Note>If you’ve already used the library in an `.ml` file, `dune build` will exit with an error. This is okay — it’ll still update the `.opam` file (required for the next step).</Note>
+    <Note>If you've already used the library in an `.ml` file, `dune build` will exit with an error. This is okay — it'll still update the `.opam` file (required for the next step).</Note>
 
     Then, run this command to install the dependencies:
 
