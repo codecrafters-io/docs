@@ -3,7 +3,7 @@ title: "C#"
 description: "Learn how to solve CodeCrafters challenges in C#"
 ---
 
-# Local development
+## Local development
 
 To run the code for your challenge locally, you'll need `dotnet` installed. Our test runners use Dotnet 8.0 (as of April 2024).
 
@@ -16,13 +16,13 @@ look something like this:
 exec dotnet run --project . --configuration Release -- "$@"
 ```
 
-# File structure
+## File structure
 
 - The files for your solution are placed in the `src/` directory.
 - `src/Program.cs` contains the `main` function, which is what the test runner executes.
 - The `.csproj` file defines project settings, target frameworks and dependencies.
 
-# Adding more files
+## Adding more files
 
 You can add more files and directories to `src/`. The test runner will include them when compiling your code.
 
@@ -87,7 +87,7 @@ public class Main {
 
 </CodeGroup>
 
-# Adding dependencies
+## Adding dependencies
 
 You can add dependencies to your project by using `dotnet`.
 

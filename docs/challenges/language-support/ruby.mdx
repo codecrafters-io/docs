@@ -5,7 +5,7 @@ description: "Learn how to solve CodeCrafters challenges in Ruby"
 
 <Note> **New to Ruby?** We recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/) to get up to speed.</Note>
 
-# Local development
+## Local development
 
 To run the code for your challenge locally, you'll need `ruby` installed. Our test runners use version `3.3` (as of May 2024).
 
@@ -17,12 +17,12 @@ The script for your challenge (like `./spawn_redis_server.sh`) will run your cod
 exec bundle exec ruby app/main.rb "$@"
 ```
 
-# File structure
+## File structure
 
 - The files for your solution are placed in the `app/` directory.
 - `app/main.rb` is the entrypoint of the project.
 
-# Adding more files
+## Adding more files
 
 You can add more files and directories to `app/`. The test runner will include them when compiling your code.
 
@@ -44,7 +44,7 @@ end
 
 </CodeGroup>
 
-# Adding dependencies
+## Adding dependencies
 
 `Gemfile` lists your project's dependencies. You can add dependencies by specifying the name of the gem and optionally the version.
 
