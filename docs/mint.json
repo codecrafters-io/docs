@@ -7,7 +7,8 @@
   },
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/light.svg",
+    "href": "https://codecrafters.io"
   },
   "favicon": "/favicon.png",
   "colors": {
@@ -44,7 +45,9 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["introduction"]
+      "pages": [
+        "introduction"
+      ]
     },
     {
       "group": "Membership Benefits",
@@ -59,7 +62,9 @@
     },
     {
       "group": "Features",
-      "pages": ["features/publish-to-github"]
+      "pages": [
+        "features/publish-to-github"
+      ]
     },
     {
       "group": "Challenges",
@@ -100,7 +105,11 @@
     },
     {
       "group": "CLI",
-      "pages": ["cli/installation", "cli/usage", "cli/update"]
+      "pages": [
+        "cli/installation",
+        "cli/usage",
+        "cli/update"
+      ]
     },
     {
       "group": "Billing",
@@ -111,7 +120,9 @@
     },
     {
       "group": "Community",
-      "pages": ["community/forum-access"]
+      "pages": [
+        "community/forum-access"
+      ]
     },
     {
       "group": "Profile Pages",
@@ -122,11 +133,15 @@
     },
     {
       "group": "Account",
-      "pages": ["account/delete-account"]
+      "pages": [
+        "account/delete-account"
+      ]
     },
     {
       "group": "Contributors",
-      "pages": ["contributors/introduction"]
+      "pages": [
+        "contributors/introduction"
+      ]
     },
     {
       "group": "Adding Language Support",
