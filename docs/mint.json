@@ -55,7 +55,6 @@
         "membership/content",
         "membership/turbo",
         "membership/code-examples",
-        "membership/dark-mode",
         "membership/anonymous-mode",
         "membership/perks"
       ]
@@ -214,10 +213,6 @@
     {
       "source": "/content",
       "destination": "/membership/content"
-    },
-    {
-      "source": "/dark-mode",
-      "destination": "/membership/dark-mode"
     },
     {
       "source": "/anon",
