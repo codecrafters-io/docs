@@ -56,8 +56,20 @@ curl -fsSL https://codecrafters.io/install.sh | bash
   </div>
 </h2>
 
-If you have a Linux distribution installed using [WSL](https://learn.microsoft.com/en-us/windows/wsl/install), just re-run the install script:
+<Tabs>
+  <Tab title="PowerShell">
+    Run the install script:
 
-```bash
-curl -fsSL https://codecrafters.io/install.sh | bash
-```
+    ```bash
+    irm https://codecrafters.io/install.ps1 | iex
+    ```
+  </Tab>
+  
+  <Tab title="WSL">
+    Run the install script:
+
+    ```bash
+    curl -fsSL https://codecrafters.io/install.sh | bash
+    ```
+  </Tab>
+</Tabs>
