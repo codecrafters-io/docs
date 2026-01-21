@@ -29,7 +29,7 @@ For example, if you added a file at `app/foo.go`, you could use it like so:
 ```go app/main.go
 package main
 
-fun main() {
+func main() {
     foo() // Uses the foo function from foo.go
 }
 ```
@@ -37,7 +37,7 @@ fun main() {
 ```go app/foo.go
 package main
 
-fun foo() {
+func foo() {
     println("Hello world!")
 }
 ```
@@ -53,7 +53,7 @@ Let's say you wanted to extract `foo.go` into the `bar` package. You'd move `foo
 ```go app/bar/foo.go
 package bar
 
-fun foo() {
+func foo() {
     println("Hello world!")
 }
 ```
@@ -63,7 +63,7 @@ package main
 
 import "github.com/codecrafters-io/dns-server-starter-go/app/bar" // Adjust this based on the package name in go.mod
 
-fun main() {
+func main() {
     bar.foo() // Uses the foo function from app/bar/foo.go
 }
 ```
