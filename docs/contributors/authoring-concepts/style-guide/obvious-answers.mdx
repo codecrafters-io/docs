@@ -1,0 +1,33 @@
+---
+title: "Obvious Answers"
+---
+
+Quiz questions should have one clearly correct answer. The wrong options should be obviously wrong.
+
+This might feel too easy, but that's intentional. The goal of questions is to ensure users engage with the content, not to test them or make them spend time distinguishing between similar options.
+
+## Bad Example
+
+> **Question:** How is the string `OK` encoded in RESP?
+>
+> - `+OK\r\n` ✅
+> - `+OK\l\n`
+> - `+OK\n`
+
+<Warning>
+  The wrong options are too close to the correct one. Users might waste time
+  second-guessing whether it's `\r\n`, `\n`, or `\l\n`.
+</Warning>
+
+## Good Example
+
+> **Question:** How is the string `OK` encoded in RESP?
+>
+> - `+OK\r\n` ✅
+> - `OK`
+> - `OK-\r\n+`
+
+<Check>
+  The correct answer is clear if you've read the content. The wrong options have
+  obvious problems like wrong prefix position or missing prefix entirely.
+</Check>

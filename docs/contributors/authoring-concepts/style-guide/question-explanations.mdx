@@ -1,0 +1,44 @@
+---
+title: "Question Explanations"
+---
+
+When explaining quiz answers, follow a two-part structure:
+
+1. Explain why the selected option is correct or incorrect
+2. If the selected option was incorrect, state the correct answer in another paragraph and optionally explain why
+
+Just repeating the correct answer isn't useful. When a user gets something wrong, it's a great opportunity to address why their thinking mismatched.
+
+## Bad Example
+
+> **Question:** What does `PING` return in Redis?
+>
+> - `OK`
+> - `PONG` ✅
+> - `PING`
+>
+> **Explanation:**<br/>
+>
+> The correct answer is `PONG`.
+
+<Warning>
+  This just restates the answer. It doesn't help the user understand why they
+  might have chosen wrong.
+</Warning>
+
+## Good Example
+
+> **Question:** What does `PING` return in Redis?
+>
+> - `OK`
+> - `PONG` ✅
+> - `PING`
+>
+> **Explanation:**<br/>
+> `OK` is the response for commands like `SET`, not `PING`.<br/><br/>
+> The correct answer is `PONG`. Redis uses this pattern to check if the server is alive.
+
+<Check>
+  This addresses a likely point of confusion, then reinforces the correct answer
+  with context.
+</Check>
