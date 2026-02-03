@@ -1,0 +1,39 @@
+---
+title: "Describe, Don't Instruct"
+---
+
+When explaining how something works, describe the facts neutrally rather than instructing the reader. Avoid "you/your" and phrasing like "you need to" or "this is how you".
+
+Think Wikipedia, not WikiHow.
+
+## Bad Example
+
+> To encode a simple string, you need to use the `+` prefix followed by the string contents and a CRLF terminator. You then get a result like `+OK\r\n`.
+
+<Warning>
+  This reads like instructions for a task. It's addressed to "you" and uses "you
+  need to".
+</Warning>
+
+## Good Example
+
+> Simple strings are encoded like this: `+<string>\r\n`
+>
+> For example, `OK` is encoded as `+OK\r\n`.
+
+<Check>
+  This describes how the encoding works. It states facts rather than giving
+  instructions.
+</Check>
+
+## Exceptions
+
+### Procedural Content
+
+If the concept is explicitly about _how to do something_, instructional language is appropriate.
+
+For example, a concept like "TCP Servers in Java" is teaching someone how to build something, so "you" language fits naturally:
+
+> To accept incoming connections, you'll need to call `serverSocket.accept()`. This method blocks until a client connects.
+
+An easy way to remember: "Here's how X works" is descriptive. "Here's how to do X" is instructional.
