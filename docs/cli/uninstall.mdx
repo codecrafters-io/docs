@@ -54,7 +54,11 @@ sudo rm -f /usr/local/bin/codecrafters
     Remove-Item -Recurse -Force "$env:LOCALAPPDATA\Programs\codecrafters" -ErrorAction SilentlyContinue
     ```
 
-    The installer may have added this folder to your user PATH. To remove it, open **Settings → System → About → Advanced system settings → Environment Variables**, edit **Path** under User variables, and delete the entry for `%LOCALAPPDATA%\Programs\codecrafters` (or the custom path you used).
+    The installer also added the CLI directory to your user PATH. To remove it:
+
+    1. Open **Settings → System → About → Advanced system settings → Environment Variables**.
+    2. Under User variables, select **Path** and click **Edit**.
+    3. Delete the entry for `%LOCALAPPDATA%\Programs\codecrafters` (or the custom path you used).
 
   </Tab>
   
