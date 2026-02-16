@@ -100,7 +100,7 @@
     },
     {
       "group": "CLI",
-      "pages": ["cli/installation", "cli/usage", "cli/update"]
+      "pages": ["cli/installation", "cli/usage", "cli/update", "cli/uninstall"]
     },
     {
       "group": "Billing",
