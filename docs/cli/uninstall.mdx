@@ -2,7 +2,7 @@
 title: "How do I uninstall the CLI?"
 ---
 
-To remove the CodeCrafters CLI from your machine, follow the OS-specific instructions below. If you installed to a custom location using `INSTALL_DIR` or `INSTALL_PATH`, use that path instead of the default.
+To remove the CodeCrafters CLI from your machine, follow the OS-specific instructions below.
 
 <h2>
   <div className={"flex items-center"}>
@@ -58,12 +58,12 @@ sudo rm -f /usr/local/bin/codecrafters
 
     1. Open **Settings → System → About → Advanced system settings → Environment Variables**.
     2. Under User variables, select **Path** and click **Edit**.
-    3. Delete the entry for `%LOCALAPPDATA%\Programs\codecrafters` (or the custom path you used).
+    3. Delete the entry for `%LOCALAPPDATA%\Programs\codecrafters`.
 
   </Tab>
   
   <Tab title="WSL">
-    Use the same step as in Linux:
+    Remove the CLI binary:
 
     ```bash
     sudo rm -f /usr/local/bin/codecrafters
