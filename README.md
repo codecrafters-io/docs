@@ -1,1 +1,1 @@
-To run the docs locally: https://mintlify.com/docs/development
+To run the docs locally: https://mintlify.com/docs/installation
