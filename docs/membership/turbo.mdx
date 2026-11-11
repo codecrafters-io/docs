@@ -7,26 +7,28 @@ description: Learn more about turbo test runs
   [Upgrade here](https://app.codecrafters.io/pay) to get access to unlimited turbo test runs.
 </Tip>
 
-A CodeCrafters membership grants you access to turbo test runs. This means that your test runs will execute faster than regular test runs.
+A CodeCrafters membership gives you Turbo priority for every test run, including extension stages.
 
 ## What are turbo test runs?
 
-Turbo test runs are given first priority by our test runners and execute faster than regular test runs.
+Turbo test runs get priority on our test runners, reducing the time you spend waiting for a run to start.
 
-In times of high demand, regular test runs might be queued while turbo test runs are executed immediately.
+During high demand, non-Turbo runs may wait in a queue. Turbo doesn't change your code or guarantee a particular execution time.
 
-If you have an active CodeCrafters membership, all of your test runs will be turbo test runs.
+All base-stage runs receive Turbo priority, even without a membership. Some extension-stage runs also receive Turbo without a membership; membership guarantees it for every run.
 
 ## How do I know if my test run is a turbo test run?
 
-If your test run is a turbo test run, you'll see this at the top of your test run output:
+When your test runners are ready, a Turbo run shows this message near the start of the output:
 
-<Frame>
-  <img className="w-full" src="/img/membership/turbo.png" />
+<Frame caption="Turbo run — example output excerpt">
+  <img className="w-full" src="/img/membership/turbo.png" alt="Dark terminal window showing: This is a turbo test run." />
 </Frame>
 
-If your test run is not a turbo test run, you'll see this instead:
+An extension-stage run without Turbo can show the queue message instead:
 
-<Frame>
-  <img className="w-full" src="/img/membership/not-turbo.png" />
+<Frame caption="Extension-stage run without Turbo — example output excerpt">
+  <img className="w-full" src="/img/membership/not-turbo.png" alt="Dark terminal window showing: Turbo test runners busy. You are in queue. Upgrade to skip the wait." />
 </Frame>
+
+Your first push, a repository that hasn't been used recently, or test runners that are still warming up can show a different message. Those messages don't indicate whether you have a membership.

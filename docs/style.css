@@ -230,6 +230,22 @@ samp,
   color: var(--cc-accent);
 }
 
+.nav-anchor > div {
+  background: transparent !important;
+  border: 1px solid var(--cc-border);
+  box-shadow: none;
+  filter: none;
+}
+
+.nav-anchor:hover > div {
+  background: var(--cc-surface) !important;
+  border-color: var(--cc-muted);
+}
+
+.nav-anchor img {
+  background: transparent !important;
+}
+
 #content :is([data-component-part="code-block-root"], .code-group) {
   border: 1px solid var(--cc-border);
   border-radius: 6px;

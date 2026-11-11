@@ -63,12 +63,6 @@
       "icon": "/icons/forum.svg",
       "color": "#9D9FAE",
       "url": "https://forum.codecrafters.io/"
-    },
-    {
-      "name": "Demo",
-      "icon": "/icons/play.svg",
-      "color": "#9D9FAE",
-      "url": "https://codecrafters.io/videos/demo"
     }
   ],
   "navigation": [
