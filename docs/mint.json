@@ -1,5 +1,15 @@
 {
   "name": "CodeCrafters",
+  "metadata": {
+    "og:image": "https://docs.codecrafters.io/img/og-docs.jpg",
+    "og:image:width": "1200",
+    "og:image:height": "640",
+    "og:image:type": "image/jpeg",
+    "og:image:alt": "CodeCrafters Docs",
+    "twitter:card": "summary_large_image",
+    "twitter:image": "https://docs.codecrafters.io/img/og-docs.jpg",
+    "twitter:image:alt": "CodeCrafters Docs"
+  },
   "feedback": {
     "thumbsRating": true,
     "suggestEdit": true,
